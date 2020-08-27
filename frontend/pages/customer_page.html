@@ -59,7 +59,7 @@
 		<!--End of Navigation Bar-->
 		<!--Main content here-->
 		<main role="main" class="container">
-			<div class="bg-white shadow-sm mt-5">
+			<div class="bg-white shadow mt-5">
 				<div id="stepper1" class="bs-stepper linear">
 					<div class="bs-stepper-header">
 						<div class="step active" data-target="#test-l-1">
@@ -98,7 +98,8 @@
 						</div>
 					</div>
 					<div class="bs-stepper-content">
-						<div id="test-l-1" class="content active dstepper-block">
+						<!-- Personal Information -->
+						<div id="test-l-1" class="content active dstepper-block fade">
 							<form>
 								<h3 class="mt-3 mb-5">Personal Information</h3>
 								<div class="form-row">
@@ -422,72 +423,432 @@
 								</div>
 							</form>
 						</div>
-						<div id="test-l-2" class="content">
+						<!-- Educational Background -->
+						<div id="test-l-2" class="content fade">
 							<form>
 								<h3 class="mt-3 mb-5">Educational Background</h3>
+								<!-- Elementary  -->
 								<h6>Elementary:</h6>
-								<div class="elementary-form" id="readroot">
-									<div class="form-row">
-										<div class="form-group col-md">
-											<label for="label__school-elementary">School</label>
-											<input
-												type="text"
-												class="form-control"
-												id="label__school-elementary"
-												placeholder="ex. Cebu Institute of Technology - University"
-											/>
-										</div>
-									</div>
-									<div class="form-row">
-										<div class="form-group col-md">
-											<label for="label__grade-elementary">Grade</label>
-											<input
-												type="text"
-												class="form-control"
-												id="label__grade-elementary"
-												placeholder="ex. Grade 9"
-											/>
-										</div>
-									</div>
-									<div id="readroot">
+								<div id="elementary-form">
+									<div id="elementary-form-block">
+										<div class="mt-5"></div>
 										<div class="form-row">
 											<div class="form-group col-md">
-												<label for="label__awards-elementary">Awards</label>
+												<label for="label__school-elementary">School</label>
 												<input
 													type="text"
 													class="form-control"
-													id="label__awards-elementary"
-													placeholder="ex. Best in English"
+													id="label__school-elementary"
+													placeholder="ex. Cebu Institute of Technology - University"
+												/>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md">
+												<label for="label__grade-elementary">Grade</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__grade-elementary"
+													placeholder="ex. Grade 9"
+												/>
+											</div>
+										</div>
+										<div id="awards-elementary">
+											<div class="form-row" id="elementary-form-mblock">
+												<div class="form-group col-md">
+													<label for="label__awards-elementary">Awards</label>
+													<input
+														type="text"
+														class="form-control"
+														id="label__awards-elementary"
+														placeholder="ex. Best in English"
+													/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md">
+										<button
+											type="button"
+											class="btn-block btn-primary"
+											onclick="addFields('elementary-form','elementary-form-block')"
+										>
+											Add School
+										</button>
+									</div>
+								</div>
+								<!-- High School -->
+								<hr />
+								<h6 class="mt-5">High School:</h6>
+								<div id="highschool-form">
+									<div id="highschool-form-block">
+										<div class="mt-5"></div>
+										<div class="form-row">
+											<div class="form-group col-md">
+												<label for="label__school-highschool">School</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__school-highschool"
+													placeholder="ex. Cebu Institute of Technology - University"
+												/>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md">
+												<label for="label__grade-highschool">Grade</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__grade-highschool"
+													placeholder="ex. Grade 9"
+												/>
+											</div>
+										</div>
+										<div id="awards-highschool">
+											<div class="form-row" id="highschool-form-mblock">
+												<div class="form-group col-md">
+													<label for="label__awards-highschool">Awards</label>
+													<input
+														type="text"
+														class="form-control"
+														id="label__awards-highschool"
+														placeholder="ex. Best in English"
+													/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md">
+										<button
+											type="button"
+											class="btn-block btn-primary"
+											onclick="addFields('highschool-form','highschool-form-block')"
+										>
+											Add School
+										</button>
+									</div>
+								</div>
+								<!-- Senior High School -->
+								<hr />
+								<h6 class="mt-5">Senior High School:</h6>
+								<div id="seniorhigh-form">
+									<div id="seniorhigh-form-block">
+										<div class="mt-5"></div>
+										<div class="form-row">
+											<div class="form-group col-md">
+												<label for="label__school-seniorhigh">School</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__school-seniorhigh"
+													placeholder="ex. Cebu Institute of Technology - University"
+												/>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md">
+												<label for="label__grade-seniorhigh">Grade</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__grade-seniorhigh"
+													placeholder="ex. Grade 9"
+												/>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md">
+												<label for="label__strand-seniorhigh">Strand</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__strand-seniorhigh"
+													placeholder="ex. STEM"
+												/>
+											</div>
+										</div>
+										<div id="awards-seniorhigh">
+											<div class="form-row" id="seniorhigh-form-mblock">
+												<div class="form-group col-md">
+													<label for="label__awards-seniorhigh">Awards</label>
+													<input
+														type="text"
+														class="form-control"
+														id="label__awards-seniorhigh"
+														placeholder="ex. Best in English"
+													/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md">
+										<button
+											type="button"
+											class="btn-block btn-primary"
+											onclick="addFields('seniorhigh-form','seniorhigh-form-block')"
+										>
+											Add School
+										</button>
+									</div>
+								</div>
+								<hr />
+								<!-- College -->
+								<h6 class="mt-5">College</h6>
+								<div id="college-form">
+									<div id="college-form-block">
+										<div class="mt-5"></div>
+										<div class="form-row">
+											<div class="form-group col-md">
+												<label for="label__school-college">School</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__school-college"
+													placeholder="ex. Cebu Institute of Technology - University"
+												/>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md">
+												<label for="label__course-college">Course</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__course-college"
+													placeholder="ex. BS-Computer Science"
+												/>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md">
+												<label for="label__level-college">Level</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__level-college"
+													placeholder="ex. 3rd YEAR"
+												/>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md">
+												<label for="label__yearcompleted-college"
+													>Year Completed</label
+												>
+												<input
+													type="text"
+													class="form-control"
+													id="label__yearcompleted-college"
+													placeholder="ex. 2020"
+												/>
+											</div>
+										</div>
+										<div id="awards-college">
+											<div class="form-row" id="college-form-mblock">
+												<div class="form-group col-md">
+													<label for="label__awards-college">Awards</label>
+													<input
+														type="text"
+														class="form-control"
+														id="label__awards-college"
+														placeholder="ex. Best in English"
+													/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md">
+										<button
+											type="button"
+											class="btn-block btn-primary"
+											onclick="addFields('college-form','college-form-block')"
+										>
+											Add School
+										</button>
+									</div>
+								</div>
+								<!-- Post Graduate -->
+								<hr />
+								<h6 class="mt-5">Post Graduate</h6>
+								<div id="postgraduate-form">
+									<div id="postgraduate-form-block">
+										<div class="mt-5"></div>
+										<div class="form-row">
+											<div class="form-group col-md">
+												<label for="label__school-postgraduate">School</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__school-postgraduate"
+													placeholder="ex. Cebu Institute of Technology - University"
+												/>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md">
+												<label for="label__course-postgraduate">Course</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__course-postgraduate"
+													placeholder="ex. BS-Computer Science"
+												/>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md">
+												<label for="label__level-postgraduate">Level</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__level-postgraduate"
+													placeholder="ex. 3rd YEAR"
+												/>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md">
+												<label for="label__yearcompleted-postgraduate"
+													>Year Completed</label
+												>
+												<input
+													type="text"
+													class="form-control"
+													id="label__yearcompleted-postgraduate"
+													placeholder="ex. 2020"
+												/>
+											</div>
+										</div>
+										<div id="awards-postgraduate">
+											<div class="form-row" id="postgraduate-form-mblock">
+												<div class="form-group col-md">
+													<label for="label__awards-postgraduate">Awards</label>
+													<input
+														type="text"
+														class="form-control"
+														id="label__awards-postgraduate"
+														placeholder="ex. Best in English"
+													/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md">
+										<button
+											type="button"
+											class="btn-block btn-primary"
+											onclick="addFields('postgraduate-form','postgraduate-form-block')"
+										>
+											Add School
+										</button>
+									</div>
+								</div>
+							</form>
+							<div class="form-row">
+								<div class="form-group col-md-6"></div>
+								<div class="form-group col-md-3">
+									<button type="button" class="btn btn-danger btn-block">
+										Cancel
+									</button>
+								</div>
+								<div class="form-group col-md-3">
+									<button
+										type="button"
+										class="btn btn-primary btn-block"
+										onclick="stepper1.next()"
+									>
+										Proceed
+									</button>
+								</div>
+							</div>
+						</div>
+						<div id="test-l-3" class="content fade">
+							<form>
+								<h3 class="mt-3 mb-5">Professional Background</h3>
+								<h6 class="mt-5">Trainings</h6>
+								<div id="professional-form">
+									<div id="professional-form-block">
+										<div class="form-row mt-3">
+											<div class="form-group col-md">
+												<label for="label__professional-title">Title</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__professional-title"
+													placeholder="ex. Title"
+												/>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md">
+												<label for="label__professional-sponsor">Sponsor</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__professional-sponsor"
+													placeholder="ex. Sponsor"
+												/>
+											</div>
+										</div>
+										<div class="form-row">
+											<div class="form-group col-md-4">
+												<label for="label__professional-title">Date</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__professional-date"
+													placeholder="ex. 29/02/2019"
+												/>
+											</div>
+											<div class="form-group col-md-8">
+												<label for="label__professional-venue">Venue</label>
+												<input
+													type="text"
+													class="form-control"
+													id="label__professional-venue"
+													placeholder="ex. CIT - University, Cebu City"
 												/>
 											</div>
 										</div>
 									</div>
-									<div class="form-row">
-										<div class="form-group col-md-6">
-											<form method="post" action="/cgi-bin/show_params.cgi">
-												<div id="writeroot"></div>
-												<button class="btn-block btn-primary">
-													Add award
-												</button>
-											</form>
-										</div>
-									</div>
-									<div class="form-row">
-										<div class="form-group col-md">
-											<button class="btn-block btn-primary">Add School</button>
-										</div>
+								</div>
+								<div class="form-row">
+									<div class="form-group col-md">
+										<button
+											type="button"
+											class="btn-block btn-primary"
+											onclick="addFields('professional-form','professional-form-block')"
+										>
+											Add Trainings
+										</button>
 									</div>
 								</div>
 							</form>
-						</div>
-						<div id="test-l-3" class="content">
-							<p class="text-center">test 3</p>
-							<button class="btn btn-primary" onclick="stepper1.next()">
-								Next
-							</button>
-							<button class="btn btn-primary" onclick="stepper1.previous()">
-								Previous
-							</button>
+							<div class="form-row">
+								<div class="form-group col-md-6"></div>
+								<div class="form-group col-md-3"></div>
+								<div class="form-group col-md-3">
+									<button
+										type="button"
+										class="btn btn-primary btn-block"
+										onclick="stepper1.next(); goToTop();"
+									>
+										Proceed
+									</button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
