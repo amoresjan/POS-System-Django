@@ -1,0 +1,10 @@
+/env
+*.log
+*.pot
+*.pyc
+*pycache/
+.vscode/
+.vim/
+media/
+local_settings.py
+db.sqlite3
