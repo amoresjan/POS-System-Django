@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <!-- Bootstrap core CSS -->
+		<link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+        crossorigin="anonymous"
+    />
+   
+   <link rel="stylesheet" href="css/style2.css" type="text/css">
+</head> 
+<body>
+        <header>
+        
+       <!-- Start of second navb-->
+       <nav class="navb css-top2">
+           <div class="navb-logo css-left2">
+               <a class="navb-item css-leftL" href="#">LOGO</a>
+           </div>
+          
+               
+                <div class="navb-end css-righ">
+                    <button id="" data-toggle="modal" data-target="#about-us"href="#" class="ccsbt button is-prim is-outl">About Us</button>
+                    <div class="ccsblue"></div><button data-toggle="modal" data-target="#contact-us" href="#" class="ccsbt button is-prim is-outl">Contact Us</button></div>
+                </div>
+           </div>
+       </nav>
+       <!-- end of navb -->
+      </header>
+
+      <!-- Start of main content -->
+       <div class="cont home cont-main fullscrn">
+           <a href="#"  class="ccs-cred">
+           <p>
+               <strong>Lorem ipsum:</strong> Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+           </p>
+          </a>
+            <div class="main">
+        
+            <!-- Start of first section (Hero) -->
+             <section class="hero css-main">
+                <div class="hero-body">
+                    <div class="cont">
+                        <div class="css-body">  
+                        
+                            <h1 class="h1 white hero-title ccs-ttl title">
+                                Lorem Ipsum is simply dummy text 
+                            </h1>
+                            <p class="large white ccs-ttl subt">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                            </p>
+                        </div>
+                <div>
+
+                    <!-- Sign in form -->
+                        <div class="card ccs-crd">
+                            <div class="card-ttl css-hdr">
+                                <h5 class="h5 ccs-crdttl title">
+                                    Control your business
+                                </h5>
+                            </div>
+             
+                            <div class="card-body">
+                                <form class="form-body css-frm">
+                                    <span class="form-wrapper">
+                                        <div>
+                                        <label>User ID</label>
+                                        <input type="text" placeholder="User ID">
+                                         </div>
+                                         <br>
+                                         <div>
+                                        <label>Password</label>
+                                        <input type="password" placeholder="Password">
+                                        <div class="btn-fnt">
+                                        </div>
+                                        <br>
+                                        <button type="submit" class="is-prim button cssbtn">
+                                            Sign in </button>
+                                        </div>
+                                    </span>
+                                </form>
+                            </div>
+
+                     
+                </div>
+            </div>
+            </div>
+            </section>   
+            <!-- end of first section -->
+
+
+        
+
+        </div>
+       </div>
+
+
+                 <!-- Modal1 -->
+                <div class="modal fade" id="about-us" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">About Us</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, w
+                            hen an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                            It has survived not only five centuries, but also the leap into electronic typesetting, 
+                            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
+                            sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like 
+                            Aldus PageMaker including versions of Lorem Ipsum.
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+
+
+                 <!-- Modal2 -->
+                 <div class="modal fade" id="contact-us" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Contact Us</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Name*</label>
+                                <input type="text" class="form-control" id="cnt-name" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Email Address*</label>
+                                <input type="email" class="form-control" id="cnt-email" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Subject</label>
+                                <input type="text" class="form-control" id="txt-subj">
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputPassword1">Message</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                              </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Send</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+       	<!-- JS, Popper.js, and jQuery -->
+           <script
+           src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+           integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+           crossorigin="anonymous"
+           ></script>
+           <script
+           src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+           integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+           crossorigin="anonymous"
+           ></script>
+           <script
+           src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+           integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+           crossorigin="anonymous"
+           ></script>
+     
+       
+      
+    
+</body>
+</html>

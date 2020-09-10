@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -33,208 +34,44 @@
 			href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css"
 		/>
 		<!-- Your custom styles (optional) -->
-		<link rel="stylesheet" href="../css/style.css" />
+		<link rel="stylesheet" href="{% static 'apps/customer/css/style.css' %}" />
 	</head>
 
 	<body>
 		<!-- Start your project here-->
 		<!--Navigation bar here-->
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
-			<div class="container">
-			<a class="navbar-brand" href="#">Navbar</a>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="#">General Merchandise</a>
 			<button
 				class="navbar-toggler"
 				type="button"
 				data-toggle="collapse"
-				data-target="#navbarNavAltMarkup"
-				aria-controls="navbarNavAltMarkup"
+				data-target="#navbarNav"
+				aria-controls="navbarNav"
 				aria-expanded="false"
 				aria-label="Toggle navigation"
 			>
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-				<div class="navbar-nav">
-					<a class="nav-item nav-link" href="#"
-						>Dashboard <span class="sr-only">(current)</span></a
-					>
-				</div>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item active">
+						<a class="nav-link" href="#"
+							>Customer <span class="sr-only">(current)</span></a
+						>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Product</a>
+					</li>
+				</ul>
 			</div>
-		</div>
 		</nav>
 		<!--End of Navigation Bar-->
 		<!--Main content here-->
 		<main role="main" class="container">
-			<h3 class="font-weight-bold mt-5">Customer Report Summary</h3>
-			<div class="customer-table shadow rounded p-2">
-				<table class="table mydatatable table-hover">
-					<thead class="thead-dark">
-						<tr>
-							<th scope="col">Date Registered</th>
-							<th scope="col">First name</th>
-							<th scope="col">Last name</th>
-							<th scope="col">Date of Birth</th>
-							<th scope="col">Address City</th>
-							<th scope="col">Options</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="rounded">
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
 			<h3 class="font-weight-bold mt-5">Product Report Summary</h3>
 			<div class="products-table shadow rounded p-2">
-				<table class="table mydatatable table-hover">
+				<table class="table data-table table-hover">
 					<thead class="thead-dark">
 						<tr>
 							<th scope="col">Date Registered</th>
@@ -253,152 +90,16 @@
 							<td>99/99/9999</td>
 							<td>Cebu City</td>
 							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
-							</td>
-						</tr>
-						<tr>
-							<td>Jan 1, 1900</td>
-							<td>Gilmar Dave</td>
-							<td>Gamboa</td>
-							<td>99/99/9999</td>
-							<td>Cebu City</td>
-							<td>
-								<button type="button" class="btn-sm btn-primary">
-									Update
-								</button>
-								<button class="btn-sm btn-danger text-white">
-									Delete
-								</button>
+								<button type="button" class="btn-sm btn-primary">View</button>
+								<button class="btn-sm btn-danger text-white">Delete</button>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
+			<a href="{% url 'customerRegistration' %}">
+				<div class="registration-button">+</div>
+			</a>
 		</main>
 		<!-- End your project here-->
 
@@ -424,7 +125,7 @@
 			charset="utf8"
 			src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"
 		></script>
-		<script src="../js/dashboard-table.js"></script>
+		<script src="{% static '/apps/customer/js/dashboard-table.js' %}"></script>
 
 		<!--Bootstrap Stepper-->
 		<script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>

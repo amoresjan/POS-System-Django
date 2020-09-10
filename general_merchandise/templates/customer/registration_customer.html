@@ -50,9 +50,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link" href="#"
-              >Dashboard <span class="sr-only">(current)</span></a
-            >
+            <a class="nav-item nav-link" href="#">
+              Customer <span class="sr-only">(current)</span>
+            </a>
+            <a class="nav-item nav-link" href="#"> Product </a>
           </div>
         </div>
       </div>
@@ -408,9 +409,11 @@
                 <div class="form-row">
                   <div class="form-group col-md-6"></div>
                   <div class="form-group col-md-3">
-                    <button type="button" class="btn btn-danger btn-block">
-                      Cancel
-                    </button>
+                    <a href="{% url 'customerDashboard' %}">
+                      <button type="button" class="btn btn-danger btn-block">
+                        Cancel
+                      </button>
+                    </a>
                   </div>
                   <div class="form-group col-md-3">
                     <button
