@@ -1,4 +1,14 @@
 /env
+<<<<<<< HEAD
+/venv
+*.log
+*.pot
+*.pyc
+*__pycache__/
+.vscode/
+.vim/
+media/
+=======
 *.log
 *.pot
 *.pyc
@@ -7,4 +17,5 @@
 .vim/
 media/
 local_settings.py
+>>>>>>> master
 db.sqlite3

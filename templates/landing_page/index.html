@@ -16,17 +16,23 @@
    <link rel="stylesheet" href="{% static 'apps/landing_page/css/style.css' %}" type="text/css">
 </head> 
 <body>
-        <header>
+       
        <!-- Start of second navb-->
+       
        <nav class="navb css-top2">
            <div class="navb-logo css-left2">
-               <a class="navb-item css-leftL" href="#">LOGO</a>
+               <a class="navb-item css-leftL" href="#" style="text-decoration: none; 
+               font-weight: bold;
+               font-family: monospace;
+               font-size: 28px;
+               color: black; padding-left: 400px !important;">dchandise</a>
            </div>
-                <div class="navb-end css-righ">
+                <div class="navb-end css-righ" style="padding-right: 400px;">
                     <button id="" data-toggle="modal" data-target="#about-us"href="#" class="ccsbt button is-prim is-outl">About Us</button>
-                    <div class="ccsblue"></div><button data-toggle="modal" data-target="#contact-us" href="#" class="ccsbt button is-prim is-outl">Contact Us</button></div>
+                    <div class="ccsblue"></div><button data-toggle="modal" data-target="#contact-us" href="#" class="ccsbt button is-prim is-outl">Contact Us</button>
                 </div>
-           </div>
+                
+          
        </nav>
        <!-- end of navb -->
       </header>
@@ -77,8 +83,8 @@
                                         <div class="btn-fnt">
                                         </div>
                                         <br>
-                                        <button type="submit" class="is-prim button cssbtn">
-                                            Sign in </button>
+                                        <a class="is-prim button cssbtn" href="{% url 'customerDashboard' %}" role="button" style="text-decoration: none;">
+                                            Sign in </a>
                                         </div>
                                     </span>
                                 </form>
