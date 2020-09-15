@@ -8,3 +8,4 @@
 media/
 local_settings.py
 db.sqlite3
+static/img/profile_pictures
