@@ -1,5 +1,6 @@
 from django.db import models
 from apps.customer import choices
+from django_countries.fields import CountryField
 
 # Create your models here.
 
@@ -28,7 +29,7 @@ class Person(models.Model):
     zip_code = models.CharField(
         max_length = 4
     )
-    country = models.CharField(
+    country = CountryField(
         max_length = 30
     )
 
@@ -76,6 +77,15 @@ class Person(models.Model):
     )
     religion = models.CharField(
         max_length = 30
-
     )
-    
+
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'
+
+class Customer(Person):
+    date_registered = models.DateField(
+        auto_now_add = True
+    )
+    date_modified = models.DateField(
+        auto_now = True
+    )
