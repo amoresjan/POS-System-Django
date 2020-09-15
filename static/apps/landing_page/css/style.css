@@ -281,7 +281,7 @@ a:hover {
 	box-shadow: none;
 	display: inline-flex;
 	font-size: 1.3rem !important;
-	height: 2.25em;
+	height: 2em;
 	justify-content: flex-start;
 	line-height: 1.5;
 	padding: calc(0.375em - 1px) calc(0.625em - 1px);
