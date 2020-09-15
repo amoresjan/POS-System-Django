@@ -8,4 +8,11 @@
 media/
 local_settings.py
 db.sqlite3
-/general_merchandise/static/img/
+
+*.jpg
+*.jpeg
+*.jpe
+*.jif
+*.jfif
+*.jfi
+*.png
