@@ -69,22 +69,15 @@
 }
 
 .registration-button {
-	width: 70px;
-	height: 70px;
-	background-color: blue;
-	border-radius: 50%;
+	height: 80px;
+  	line-height: 80px;  
+  	width: 80px;  
+  	font-size: 2em;
+  	font-weight: bold;
+ 	 border-radius: 50%;
 	box-shadow: 0 6px 10px 0 #666;
-
-	font-size: 50px;
-	line-height: 70px;
-	color: white;
-	text-align: center;
-
-	position: fixed;
-	right: 50px;
-	bottom: 50px;
-
 	transition: all 0.1s ease-in-out;
+	background-color: blue;
 }
 
 .registration-button:hover {
