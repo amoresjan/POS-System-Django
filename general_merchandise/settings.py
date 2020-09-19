@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django_countries',
 
     'apps.customer',
+    'apps.product',
 ]
 
 MIDDLEWARE = [
