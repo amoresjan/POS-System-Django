@@ -1,13 +1,24 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<meta http-equiv="x-ua-compatible" content="ie=edge" />
-	<title>customer page</title>
+{% block scripts %}
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous" defer></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous" defer></script>
+	<!--Bootstrap Stepper-->
+	<script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js" defer></script>
+	<script src="{% static 'apps/customer/js/stepper.js' %}" defer></script>
+	<script src="{% static 'apps/customer/js/more-fields.js' %}" defer></script>
+{% endblock scripts%}
 
+{% block stylesheets %}
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
@@ -16,17 +27,17 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css" />
 	<!-- Your custom styles (optional) -->
 	<link rel="stylesheet" href="{% static 'apps/customer/css/style.css' %}" />
-</head>
+{% endblock %}
 
-<body>
-	<!-- Start your project here-->
-	<!--Navigation bar here-->
-	{% include 'navbar.html' %}
-	<!--End of Navigation Bar-->
+{% block title %} Customer Registration {% endblock title %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
 	<!--Main content here-->
 	<main role="main" class="container">
 		<div class="bg-white shadow mt-5">
-			<div id="stepper1" class="bs-stepper linear">
+			<div class="bs-stepper linear stepper1">
 				<div class="bs-stepper-header" role="tablist">
 					<div class="step" data-target="#test-l-1">
 						<button type="button" class="step-trigger" role="tab" id="stepper1trigger1"
@@ -528,22 +539,4 @@
 			</div>
 		</div>
 	</main>
-	<!-- End your project here-->
-
-	<!-- JS, Popper.js, and jQuery -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-		crossorigin="anonymous"></script>
-	<!--Bootstrap Stepper-->
-	<script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>
-	<script src="{% static 'apps/customer/js/stepper.js' %}"></script>
-	<script src="{% static 'apps/customer/js/more-fields.js' %}"></script>
-</body>
-
-</html>
+{% endblock %}

@@ -7,7 +7,7 @@ from .forms import *
 # Create your views here.
 
 def customerDashboardViewSet(request):
-    customers = Person.objects.all()
+    customers = Customer.objects.all()
     return render(request, 'customer/dashboard.html', {'customers': customers})
 
 
@@ -23,6 +23,6 @@ class customerRegistrationViewSet(View):
 
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('/customer/dashboard.html')
         
         return HttpResponse(form.errors)
