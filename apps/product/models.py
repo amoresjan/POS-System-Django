@@ -15,6 +15,10 @@ class Product(models.Model):
         max_length = 30
     )
 
+    product_category = models.CharField(
+        max_length = 30
+    )
+
     profile_picture = models.ImageField(
         upload_to = 'static/apps/product/img/profile_pictures',
         null = True
@@ -24,13 +28,9 @@ class Product(models.Model):
         max_length = 30
     )
 
-    product_Color = models.CharField(
+    color = models.CharField(
         max_length = 1,
         choices = choices.Colors
-    )
-
-    product_size = models.CharField(
-        max_length = 30
     )
 
     product_dimension = models.CharField(
