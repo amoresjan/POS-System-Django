@@ -1,5 +1,4 @@
 .bg-dark {
-<<<<<<< HEAD
 	background-color: #04204e !important;
 }
 
@@ -58,7 +57,6 @@
 
 .navbar-nav {
 	text-align: center;
-	margin-left: auto;
 }
 .nav-link {
 	padding: 0.2rem 1rem;
@@ -102,118 +100,4 @@
 		line-height: 0.3;
 		background: #fff;
 	}
-}
-
-@media (min-width: 1200px) {
-	.cont {
-		max-width: 1140px;
-	}
-}
-
-.nav-collapse {
-	display: flex !important;
-	flex-grow: 1;
-=======
-  background-color: #04204e !important;
-}
-
-.navbar-brand {
-  font-weight: bold;
-  font-family: monospace;
-  font-size: 28px;
-}
-
-.navbar-dark .nav-link {
-  font-weight: 700;
-  font-size: 14px;
-  text-transform: uppercase;
-}
-
-.navbar-dark .navbar-nav .nav-item {
-  margin: 0 15px;
-}
-
-.carousel-item {
-  height: 100vh;
-  min-height: 300px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  background-size: cover;
-}
-
-.carousel-caption {
-  bottom: 370px;
-}
-
-.carousel-caption h5 {
-  font-size: 45px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-top: 25px;
-  font-family: merienda;
-}
-
-.carousel-caption p {
-  width: 60%;
-  margin: auto;
-  font-size: 18px;
-  line-height: 1.9;
-  font-family: poppins;
-}
-
-.carousel-caption a {
-  text-transform: uppercase;
-  background: #262626;
-  padding: 10px 30px;
-  display: inline-block;
-  color: #fff;
-  margin-top: 15px;
-}
-
-.navbar-nav {
-  text-align: center;
-}
-.nav-link {
-  padding: 0.2rem 1rem;
-}
-
-.w-100 {
-  height: 100vh;
-}
-
-.registration-button {
-  width: 70px;
-  height: 70px;
-  background-color: blue;
-  border-radius: 50%;
-  box-shadow: 0 6px 10px 0 #666;
-
-  font-size: 50px;
-  line-height: 70px;
-  color: white;
-  text-align: center;
-
-  position: fixed;
-  right: 50px;
-  bottom: 50px;
-
-  transition: all 0.1s ease-in-out;
-}
-
-.registration-button:hover {
-  box-shadow: 0 6px 14px 0 #666;
-  transform: scale(1.05);
-}
-
-@media only screen and (max-width: 767px) {
-  .navbar-nav.ml-auto {
-    background: rgba(0, 0, 0, 0.5);
-  }
-  .navbar-toggler {
-    padding: 1px 5px;
-    font-size: 18px;
-    line-height: 0.3;
-    background: #fff;
-  }
->>>>>>> master
 }
