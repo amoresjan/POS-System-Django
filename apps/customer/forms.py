@@ -5,4 +5,7 @@ from .models import *
 class CustomerForm(ModelForm):
     class Meta:
         model = Customer
-        fields = ('first_name',)
+        fields = '__all__'
+        widgets = {
+            'country': CountrySelectWidget()
+        }

@@ -10,8 +10,6 @@ def customerDashboardViewSet(request):
     customers = Person.objects.all()
     return render(request, 'customer/dashboard.html', {'customers': customers})
 
-    
-#Customer CRUD
 
 class customerRegistrationViewSet(View):
     customer_form = CustomerForm
@@ -21,7 +19,7 @@ class customerRegistrationViewSet(View):
         return render(request, 'customer/registration_customer.html', context)
 
     def post(self, request):
-        form = self.customer_form(request.POST)
+        form = self.customer_form(request.POST, request.FILES)
 
         if form.is_valid():
             form.save()
