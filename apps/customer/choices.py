@@ -1,8 +1,10 @@
 MALE = 'M'
 FEMALE = 'F'
-Sex = (
+OTHERS = 'O'
+Gender = (
     (MALE, 'Male'),
-    (FEMALE, 'Female')
+    (FEMALE, 'Female'),
+    (OTHERS, 'Others')
 )
 
 SINGLE = 'S'
