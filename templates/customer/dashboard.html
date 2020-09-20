@@ -85,7 +85,7 @@
               <th scope="col">First name</th>
               <th scope="col">Last name</th>
               <th scope="col">Date of Birth</th>
-              <th scope="col">Address City</th>
+              <th scope="col">City Address</th>
               <th scope="col">Options</th>
             </tr>
           </thead>
@@ -95,8 +95,8 @@
                 <td>{{i.date_registered}}</td>
                 <td>{{i.first_name}}</td>
                 <td>{{i.last_name}}</td>
-                <td>{{i.date_of_birth}}</td>
-                <td>{{i.address}}</td>
+                <td>{{i.birth_date}}</td>
+                <td>{{i.city}}</td>
                 <td>
                   <button
                     type="button"
@@ -123,7 +123,9 @@
         </table>
       </div>
       <a href="{% url 'customerRegistration' %}">
-        <div class="registration-button">+</div>
+        <button type="submit" class="registration-button">
+          +
+        </button>
       </a>
     </main>
     <!-- Modal -->
@@ -192,9 +194,9 @@
         <div class="modal-body">
             <b>Name:</b> {{i.last_name}} , {{i.first_name}}
             <br />
-            <b>Address:</b> {{i.address}}
+            <b>Address:</b> {{i.city}}
             <br />
-            <b>Birthdate:</b> {{i.date_of_birth}}
+            <b>Birthdate:</b> {{i.birth_date}}
             <br />
             <b>Date Registered:</b> {{i.date_registered}}
             <br />
@@ -207,7 +209,9 @@
           >
             Close
           </button>
-          <button type="button" class="btn btn-primary">Update</button>
+          <a href="{% url 'customerRegistration' %}">
+            <button type="submit" class="btn btn-primary">Update</button>
+          </a>
         </div>
       </div>
     </div>

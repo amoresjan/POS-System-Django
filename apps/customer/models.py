@@ -20,6 +20,15 @@ class Person(models.Model):
         upload_to = 'static/apps/customer/img/profile_pictures/'
     )
     
+
+    street = models.CharField(
+        max_length = 50,
+        default = ''
+    )
+    barangay = models.CharField(
+        max_length = 50,
+        default = ''
+    )
     city = models.CharField(
         max_length = 50
     )
@@ -33,9 +42,9 @@ class Person(models.Model):
         max_length = 30
     )
 
-    sex = models.CharField(
+    gender = models.CharField(
         max_length = 1,
-        choices = choices.Sex
+        choices = choices.Gender
     )
     birth_date = models.DateField()
     status = models.CharField(
@@ -54,18 +63,18 @@ class Person(models.Model):
     number_of_children = models.PositiveIntegerField(
         default = 0
     )
-
-    father_name = models.CharField(
-        max_length = 70
-    )
-    father_occupation = models.CharField(
-        max_length = 30
-    )
     
     mother_name = models.CharField(
         max_length = 70
     )
     mother_occupation = models.CharField(
+        max_length = 30
+    )
+
+    father_name = models.CharField(
+        max_length = 70
+    )
+    father_occupation = models.CharField(
         max_length = 30
     )
 
