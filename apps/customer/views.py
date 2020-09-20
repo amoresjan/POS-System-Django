@@ -23,6 +23,6 @@ class customerRegistrationViewSet(View):
 
         if form.is_valid():
             form.save()
-            return redirect('/customer/dashboard.html')
+            return redirect('customerDashboard')
         
         return HttpResponse(form.errors)
