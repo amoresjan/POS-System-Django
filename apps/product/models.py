@@ -12,11 +12,11 @@ class Product(models.Model):
         auto_now_add=True
     )
 
-    product_name = models.CharField(
+    product_category = models.CharField(
         max_length=30
     )
 
-    product_category = models.CharField(
+    product_name = models.CharField(
         max_length=30
     )
 

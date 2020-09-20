@@ -8,7 +8,8 @@ from .forms import *
 
 
 def productDashboardViewSet(request):
-    return render(request, 'product/dashboard.html')
+    products = Product.objects.all()
+    return render(request, 'product/dashboard.html', {'products': products})
 
 
 class productRegistrationViewSet(View):
@@ -23,6 +24,6 @@ class productRegistrationViewSet(View):
 
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('/product')
 
         return HttpResponse(form.errors)
