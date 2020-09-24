@@ -1,20 +1,12 @@
-MALE = 'M'
-FEMALE = 'F'
-OTHERS = 'O'
-Gender = (
-    (MALE, 'Male'),
-    (FEMALE, 'Female'),
-    (OTHERS, 'Others')
-)
+from django.db import models
 
-SINGLE = 'S'
-MARRIED = 'M'
-WIDOWED = 'W'
-DIVORCED = 'D'
-Status = (
-    (SINGLE, 'Single'),
-    (MARRIED, 'Married'),
-    (WIDOWED, 'Widowed'),
-    (DIVORCED, 'Divorced')
-)
+class Gender(models.TextChoices):
+    Male = ('M', 'Male')
+    Female = ('F', 'Female')
+    Others = ('O', 'Others')
 
+class Status(models.TextChoices):
+    Single = ('S', 'Single')
+    Married = ('M', 'Married')
+    Widowed = ('W', 'Widowed')
+    Divorced = ('D', 'Divorced')

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'django_countries',
+    'stdimage',
 
     'apps.customer',
     'apps.product',

@@ -3,12 +3,18 @@ from django.views import View
 from django.http import HttpResponse
 from .models import *
 from .forms import *
+from apps.customer import choices
 
 # Create your views here.
 
 def customerDashboardViewSet(request):
     customers = Customer.objects.all()
-    return render(request, 'customer/dashboard.html', {'customers': customers})
+    context = {
+        'customers': customers,
+        'status_choices' : choices.Status,
+        'gender_choices' : choices.Gender
+    }
+    return render(request, 'customer/dashboard.html', context)
 
 
 class customerRegistrationViewSet(View):
