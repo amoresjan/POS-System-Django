@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 from apps.product import choices
 # Create your models here.
 
@@ -18,11 +19,6 @@ class Product(models.Model):
 
     product_name = models.CharField(
         max_length=30
-    )
-
-    profile_picture = models.ImageField(
-        upload_to='static/apps/product/img/profile_pictures',
-        null=True
     )
 
     product_brand = models.CharField(
@@ -51,3 +47,19 @@ class Product(models.Model):
 
     def __str__(self):
         return self.product_name
+
+
+class Images(models.Model):
+    product = models.ForeignKey(
+        Product,
+        default=None,
+        on_delete=models.CASCADE,
+    )
+    image = models.ImageField(
+        upload_to='static/apps/product/img/profile_pictures',
+        null=True,
+        blank=True
+    )
+
+    def __str__(self):
+        return self.product.product_name + " Image"
