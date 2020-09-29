@@ -109,7 +109,7 @@
                 <button
 									class="btn-sm btn-danger text-white"
 									data-toggle="modal"
-									data-target="#delete"
+									data-target="#delproduct{{i.sku}}"
 									href="#"
 								>
 									Delete
@@ -126,10 +126,11 @@
         <div class="registration-button">+</div>
       </a>
     </main>
-    <!-- Modal -->
+    <!-- Modal Delete -->
+    {% for i in products %}
 		<div
     class="modal fade"
-    id="delete"
+    id="delproduct{{i.sku}}"
     tabindex="-1"
     role="dialog"
     aria-labelledby="exampleModalLabel"
@@ -148,7 +149,11 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <form id="deleteForm" method="post">
+          {% csrf_token %}
         <div class="modal-body">
+          <input type="text" class="form-control" id="product_sku" name="sku"
+                    value="{{i.sku}}" hidden/>
           Do you really want to delete this particular record? This process
           cannot be undone.
         </div>
@@ -160,13 +165,14 @@
           >
             Cancel
           </button>
-          <button type="button" class="btn btn-danger">Confirm</button>
+          <button type="submit" id="btnDelete" name="btnDelete" class="btn btn-danger">Confirm</button>
         </div>
+      </form>
       </div>
     </div>
   </div>
-
-  <!-- Modal2 -->
+  {% endfor %}
+  <!-- Modal View and Update -->
   {% for i in products %}
   <div
     class="modal fade"
@@ -189,6 +195,8 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <form if="updateForm" method="post">
+          {% csrf_token %}
         <div class="modal-body">
           <div>
             <div id="carouselExampleIndicators" class="carousel slide carousel-fit" data-ride="carousel">
@@ -221,6 +229,9 @@
                 {% endfor %}
   
               </div> -->
+              <input type="text" class="form-control" id="product_sku" name="sku"
+                    value="{{i.sku}}" hidden/>
+
               <div class="form-row">
                 <div class="form-group col-md mrg-top">
                   <label for="product_category">Product Category</label>
@@ -236,6 +247,17 @@
                       value="{{i.product_brand}}" required/>
                   </div>
                   </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md">
+                      <label for="color">Color</label>
+                      <select id="color" name="color" class="form-control" placeholder="{{i.color}}" required>
+                        {% for color in color_choices %}
+                          <option value="{{color.0}}" {% if color.0 == i.color %} selected {% endif %}>{{color.name}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    </div>
            
                   <div class="form-row">
                     <div class="form-group col-md">
@@ -247,7 +269,7 @@
 
                     <div class="form-row">
                       <div class="form-group col-md">
-                        <label for="date_registered">Product Price</label>
+                        <label for="product_price">Product Price</label>
                         <input type="number" class="form-control" id="product_price" name="product_price"
                           value="{{i.product_price}}" required/>
                       </div>
@@ -255,7 +277,7 @@
                    
                     <div class="form-row">
                       <div class="form-group col-md">
-                        <label for="date_registered">Number of items</label>
+                        <label for="num_items">Number of items</label>
                         <input type="number" class="form-control" id="num_items" name="num_items"
                           value="{{i.num_items}}" required/>
                       </div>
@@ -270,8 +292,9 @@
           >
             Close
           </button>
-          <button type="button" class="btn btn-primary">Update</button>
+          <button type="submit" id="btnUpdate" name="btnUpdate" class="btn btn-primary">Update</button>
         </div>
+      </form>
       </div>
     </div>
   </div>

@@ -1,21 +1,11 @@
-BLACK = 'B'
-WHITE = 'W'
-RED = 'R'
-GREEN = 'G'
-YELLOW = 'Y'
-BLUE = 'B'
-PURPLE = 'P'
-ORANGE = 'O'
-PINK = 'P'
+from django.db import models
 
-Colors = (
-    (BLACK, 'Black'),
-    (WHITE, 'White'),
-    (RED, 'Red'),
-    (GREEN, 'Green'),
-    (YELLOW, 'Yellow'),
-    (BLUE, 'Blue'),
-    (PURPLE, 'Purple'),
-    (ORANGE, 'Orange'),
-    (PINK, 'Pink'),
-)
+class Color(models.TextChoices):
+    Black = ('B', 'Black')
+    White = ('W', 'White')
+    Red = ('R', 'Red')
+    Green = ('G', 'Green')
+    Yellow = ('Y', 'Yellow')
+    Purple = ('P', 'Purple')
+    Orange = ('O', 'Orange')
+    

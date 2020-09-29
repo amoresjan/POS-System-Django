@@ -8,9 +8,36 @@ from .forms import *
 # Create your views here.
 
 
-def productDashboardViewSet(request):
-    products = Product.objects.all()
-    return render(request, 'product/dashboard.html', {'products': products})
+class productDashboardViewSet(View):
+    def get(self, request):
+        products = Product.objects.all()
+        context = {
+             'products': products,
+             'color_choices' : choices.Color,
+        }
+        return render(request, 'product/dashboard.html', context)
+
+    def post(self, request):
+        if request.method == 'POST':
+            if 'btnUpdate' in request.POST:
+                sku = request.POST.get("sku")
+                category = request.POST.get("product_category")
+                brand = request.POST.get("product_brand")
+                col = request.POST.get("color")
+                name = request.POST.get("product_name")
+                price = request.POST.get("product_price")
+                num = request.POST.get("num_items")
+                update_product = Product.objects.filter(sku = sku).update(product_category = category, product_brand = brand, color = col, product_name = name, product_price = price, num_items = num)
+                print(update_product)
+                print('product updated')
+
+            elif 'btnDelete' in request.POST:
+                sku = request.POST.get("sku")
+                prod = Product.objects.filter(sku = sku).delete()
+
+            
+        return redirect('/product')
+
 
 
 class productRegistrationViewSet(View):

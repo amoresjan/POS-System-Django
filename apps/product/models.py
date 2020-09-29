@@ -27,7 +27,7 @@ class Product(models.Model):
 
     color = models.CharField(
         max_length=1,
-        choices=choices.Colors
+        choices=choices.Color.choices,
     )
 
     product_dimension = models.CharField(
