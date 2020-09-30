@@ -78,7 +78,7 @@
           <td>{{customer.birth_date}}</td>
           <td>{{customer.city}}</td>
           <td>
-            <button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#customer{{customer.id}}">
+            <button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#customer{{customer.id}}" >
               View
             </button>
             <button class="btn-sm btn-danger text-white" data-toggle="modal" data-target="#delete" href="#">
@@ -97,8 +97,9 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
+            <form action="" method="POST" enctype="multipart/form-data">
+              <input type="text" name="id" value="{{customer.id}}" hidden />
               <div class="modal-body">
-                <form action="" method="POST" enctype="multipart/form-data">
                   {% csrf_token %}
                   <div class="form-row">
                     <div class="col-md-4"></div>
@@ -118,12 +119,12 @@
                     <div class="form-group col-md-7">
                       <label for="first_name">First Name</label>
                       <input type="text" class="form-control" id="first_name" name="first_name"
-                        placeholder="ex. Gilmar Dave" value="{{customer.first_name}}" required/>
+                        placeholder="ex. Gilmar Dave" value="{{customer.first_name}}" pattern="[a-zA-Z][a-zA-Z ]{2,}" required/>
                     </div>
                     <div class="form-group col-md-5">
                       <label for="id_last_name">Last Name</label>
                       <input type="text" class="form-control" name="last_name" placeholder="ex. Gamboa"
-                        value="{{customer.last_name}}" required />
+                        value="{{customer.last_name}}" pattern="[a-zA-Z][a-zA-Z ]{2,}" required />
                     </div>
                   </div>
                   <h6>Complete Address</h6>
@@ -204,21 +205,21 @@
                         <label for="id_spouse_name">Spouse's Full Name</label>
                         <input type="text" class="form-control" name="spouse_name"
                           placeholder="First Name, M.I, Last Name (ex. Jonathan Jubeth O.Gamboa)"
-                          value="{{customer.spouse_name}}" />
+                          value="{{customer.spouse_name}}"/>
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md">
                         <label for="id_spouse_occupation">Spouse's Occupation</label>
                         <input type="text" class="form-control" name="spouse_occupation"
-                          value="{{customer.spouse_occupation}}" placeholder="ex. Engineer" />
+                          value="{{customer.spouse_occupation}}" placeholder="ex. Engineer" pattern="[a-zA-Z][a-zA-Z ]{2,}"/>
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="form-group col-md">
                         <label for="id_number_of_children">Number of Children</label>
                         <input type="number" class="form-control" name="number_of_children"
-                          value="{{customer.number_of_children}}" placeholder="ex. 6" min="0" required/>
+                          value="{{customer.number_of_children}}" placeholder="ex. 6" min="0"  required/>
                       </div>
                     </div>
                   </div>
@@ -234,7 +235,7 @@
                     <div class="form-group col-md">
                       <label for="id_mother_occupation">Mothers's Occupation</label>
                       <input type="text" class="form-control" name="mother_occupation" placeholder="ex. Engineer"
-                        value="{{customer.mother_occupation}}" />
+                        value="{{customer.mother_occupation}}" pattern="[a-zA-Z][a-zA-Z ]{2,}" />
                     </div>
                   </div>
                   <div class="form-row">
@@ -249,7 +250,7 @@
                     <div class="form-group col-md">
                       <label for="id_father_occupation">Father's Occupation</label>
                       <input type="text" class="form-control" name="father_occupation" placeholder="ex. Engineer"
-                        value="{{customer.father_occupation}}" />
+                        value="{{customer.father_occupation}}" pattern="[a-zA-Z][a-zA-Z ]{2,}" />
                     </div>
                   </div>
                   <div class="form-row">
@@ -268,17 +269,17 @@
                     <div class="form-group col-md">
                       <label for="id_religion">Religion</label>
                       <input type="text" class="form-control" name="religion" placeholder="ex. Roman Catholic"
-                        value="{{customer.religion}}" />
+                        value="{{customer.religion}}" pattern="[a-zA-Z][a-zA-Z ]{2,}" />
                     </div>
                   </div>
-                </form>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                   Close
                 </button>
-                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary" id="btnUpdate">Update</button>
               </div>
+            </form>
             </div>
           </div>
         </div>

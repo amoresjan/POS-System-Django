@@ -95,7 +95,7 @@ class Person(models.Model):
 
     def __str__(self):
         if self.middle_name:
-            return f'{self.first_name} {self.middle_name[0]}. {self.last_name}'
+            return f'{self.first_name} {self.middle_name[0]}. {self.last_name}' #pylint: disable=unsubscriptable-object
         return f'{self.first_name} {self.last_name}'
 
 class Customer(Person):
