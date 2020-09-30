@@ -78,7 +78,7 @@
           <td>{{customer.birth_date}}</td>
           <td>{{customer.city}}</td>
           <td>
-            <button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#customer{{customer.id}}" >
+            <button type="button" class="btn-sm btn-primary" data-toggle="modal" data-target="#customer{{customer.id}}">
               View
             </button>
             <button class="btn-sm btn-danger text-white" data-toggle="modal" data-target="#delete" href="#">
@@ -86,226 +86,6 @@
             </button>
           </td>
         </tr>
-        <!-- View / Update Modal -->
-        <div class="modal fade" id="customer{{customer.id}}" tabindex="-1" role="dialog"
-          aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Personal Information</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-            <form action="" method="POST" enctype="multipart/form-data">
-              <input type="text" name="id" value="{{customer.id}}" hidden />
-              <div class="modal-body">
-                  {% csrf_token %}
-                  <div class="form-row">
-                    <div class="col-md-4"></div>
-                    <div class="col-4 d-flex justify-content-center">
-                      <img src="{% if customer.profile_picture.url is not null %} {{ customer.profile_picture.url }} {% else %} ../../static/img/profile_pictures/customer_placeholder.png {% endif %}" class="form_profile-picture">
-                    </div>
-                    <div class="col-md-4"></div>
-                  </div>
-                  <div class="form-row m-4">
-                    <div class="col-md-2"></div>
-                    <div class="col-8 d-flex justify-content-center">
-                      <input type="file" name="profile_picture" />
-                    </div>
-                    <div class="col-md-2"></div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md-7">
-                      <label for="first_name">First Name</label>
-                      <input type="text" class="form-control" id="first_name" name="first_name"
-                        placeholder="ex. Gilmar Dave" value="{{customer.first_name}}" pattern="[a-zA-Z][a-zA-Z ]{2,}" required/>
-                    </div>
-                    <div class="form-group col-md-5">
-                      <label for="id_last_name">Last Name</label>
-                      <input type="text" class="form-control" name="last_name" placeholder="ex. Gamboa"
-                        value="{{customer.last_name}}" pattern="[a-zA-Z][a-zA-Z ]{2,}" required />
-                    </div>
-                  </div>
-                  <h6>Complete Address</h6>
-                  <div class="form-row">
-                    <div class="form-group col-md">
-                      <label for="id_street">Street</label>
-                      <input type="text" class="form-control" name="street" placeholder="ex. 221B Baker Street"
-                        value="{{customer.street}}" required />
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="id_barangay">Barangay</label>
-                      <input type="text" class="form-control" name="barangay" placeholder="ex. Bulacao"
-                        value="{{customer.barangay}}" required />
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="id_city">City</label>
-                      <input type="text" class="form-control" name="city" placeholder="ex. Cebu City"
-                        value="{{customer.city}}" required/>
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md-8">
-                      <label for="id_province">Province</label>
-                      <input type="text" class="form-control" name="province" placeholder="ex. Cebu"
-                        value="{{customer.province}}" required />
-                    </div>
-                    <div class="form-group col-md-4">
-                      <label for="id_zip_code">Zip Code</label>
-                      <input type="number" class="form-control" name="zip_code" placeholder="ex. 6000"
-                        value="{{customer.zip_code}}" maxlength="4" minlength="3" required />
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md">
-                      <label for="id_country">Country</label>
-                      <select id="country" name="country" class="form-control" required>
-                        {% load countries %}
-                        {% get_countries as countries %}
-                        {% for country in countries %}
-                        <option value="{{ country.code }}" {% if country.code == customer.country %} selected="selected"
-                          {% endif %}>{{ country.name }}</option>
-                        {% endfor %}
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md">
-                      <label for="id_civil_status">Civil Status</label>
-                      <select id="status" name="status" class="form-control" required>
-                        {% for status in status_choices %}
-                          <option value="{{status.0}}" {% if status.0 == customer.status %} selected {% endif %}>{{status.name}}</option>
-                        {% endfor %}
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md">
-                      <label for="id_gender">Gender</label>
-                      <select id="sex" name="gender" class="form-control" placeholder="{{customer.gender}}" required>
-                        {% for gender in gender_choices %}
-                          <option value="{{gender.0}}" {% if status.0 == customer.gender %} selected {% endif %}>{{gender.name}}</option>
-                        {% endfor %}
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <label for="bdate">Birthdate</label>
-                    <input type="date" class="form-control" id="bdate" name="birth_date"
-                      value="{{customer.birth_date|date:"Y-m-d"}}" required>
-                  </div>
-                  <br>
-                  <h6>If you're married, fill in spouse's information</h6>
-                  <div class="spouse-available">
-                    <div class="form-row">
-                      <div class="form-group col-md">
-                        <label for="id_spouse_name">Spouse's Full Name</label>
-                        <input type="text" class="form-control" name="spouse_name"
-                          placeholder="First Name, M.I, Last Name (ex. Jonathan Jubeth O.Gamboa)"
-                          value="{{customer.spouse_name}}"/>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group col-md">
-                        <label for="id_spouse_occupation">Spouse's Occupation</label>
-                        <input type="text" class="form-control" name="spouse_occupation"
-                          value="{{customer.spouse_occupation}}" placeholder="ex. Engineer" pattern="[a-zA-Z][a-zA-Z ]{2,}"/>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group col-md">
-                        <label for="id_number_of_children">Number of Children</label>
-                        <input type="number" class="form-control" name="number_of_children"
-                          value="{{customer.number_of_children}}" placeholder="ex. 6" min="0"  required/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md">
-                      <label for="id_mother_name">Mother's Full Name</label>
-                      <input type="text" class="form-control" name="mother_name"
-                        placeholder="First Name, M.I, Last Name (ex. Jonathan Jubeth O.Gamboa)"
-                        value="{{customer.mother_name}}" />
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md">
-                      <label for="id_mother_occupation">Mothers's Occupation</label>
-                      <input type="text" class="form-control" name="mother_occupation" placeholder="ex. Engineer"
-                        value="{{customer.mother_occupation}}" pattern="[a-zA-Z][a-zA-Z ]{2,}" />
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md">
-                      <label for="id_father_name">Father's Full Name</label>
-                      <input type="text" class="form-control" name="father_name"
-                        placeholder="First Name, M.I, Last Name (ex. Jonathan Jubeth O.Gamboa)"
-                        value="{{customer.father_name}}" />
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md">
-                      <label for="id_father_occupation">Father's Occupation</label>
-                      <input type="text" class="form-control" name="father_occupation" placeholder="ex. Engineer"
-                        value="{{customer.father_occupation}}" pattern="[a-zA-Z][a-zA-Z ]{2,}" />
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="id_height">Height</label>
-                      <input type="number" class="form-control" name="height"
-                        placeholder="Input in centimeters (ex. 170)" value="{{customer.height}}" min="0" required />
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label for="id_weight">Weight</label>
-                      <input type="number" class="form-control" name="weight" placeholder="Input in kilograms (ex. 65)" min="0"
-                        value="{{customer.weight}}" required />
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md">
-                      <label for="id_religion">Religion</label>
-                      <input type="text" class="form-control" name="religion" placeholder="ex. Roman Catholic"
-                        value="{{customer.religion}}" pattern="[a-zA-Z][a-zA-Z ]{2,}" />
-                    </div>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                  Close
-                </button>
-                <button type="submit" class="btn btn-primary" id="btnUpdate">Update</button>
-              </div>
-            </form>
-            </div>
-          </div>
-        </div>
-        <!-- Delete Modal -->
-        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                Do you really want to delete this particular record? This process
-                cannot be undone.
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                  Cancel
-                </button>
-                <button type="button" class="btn btn-danger">Confirm</button>
-              </div>
-            </div>
-          </div>
-        </div>
         {% endfor %}
       </tbody>
     </table>
@@ -316,6 +96,373 @@
     </button>
   </a>
 </main>
+
+{% for customer in customers %}
+<!-- View / Update Modal -->
+<div class="modal fade" id="customer{{customer.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Personal Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" method="POST" enctype="multipart/form-data">
+        <div class="modal-body">
+          {% csrf_token %}
+          <input type="text" class="form-control" id="id" name="id" value="{{customer.id}}" hidden />
+          <div class="form-row">
+            <div class="col-md-4"></div>
+            <div class="col-4 d-flex justify-content-center">
+              <img
+                src="{% if customer.profile_picture.url is not null %} {{ customer.profile_picture.url }} {% else %} ../../static/img/profile_pictures/customer_placeholder.png {% endif %}"
+                class="form_profile-picture">
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+          <div class="form-row m-4">
+            <div class="col-md-2"></div>
+            <div class="col-8 d-flex justify-content-center">
+              <input type="file" name="profile_picture" />
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-7">
+              <label for="first_name">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="first_name"
+                name="first_name"
+                placeholder="ex. Gilmar Dave"
+                value="{{customer.first_name}}"
+                pattern="[a-zA-Z][a-zA-Z ]{2,30}"
+                title="Must contain at least 2 to 30 characters, without numbers and symbols"
+                required
+              />
+            </div>
+            <div class="form-group col-md-5">
+              <label for="id_last_name">Last Name</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                name="last_name" 
+                placeholder="ex. Gamboa"
+                value="{{customer.last_name}}" 
+                pattern="[a-zA-Z][a-zA-Z ]{2,30}" 
+                title="Must contain at least 2 to 30 characters, without numbers and symbols"
+                required 
+              />
+            </div>
+          </div>
+          <h6>Complete Address</h6>
+          <div class="form-row">
+            <div class="form-group col-md">
+              <label for="id_street">Street</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                name="street" 
+                placeholder="ex. 221B Baker Street"
+                pattern=".{2,30}"
+                title="Must contain 2 to 30 characters"
+                value="{{customer.street}}" 
+                required 
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="id_barangay">Barangay</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                name="barangay" 
+                placeholder="ex. Bulacao"
+                value="{{customer.barangay}}"
+                pattern=".{2,30}"
+                title="Must contain 2 to 30 characters"
+                required 
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="id_city">City</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                name="city" 
+                placeholder="ex. Cebu City" 
+                value="{{customer.city}}"
+                pattern="[a-zA-Z][a-zA-Z ]{2,30}"
+                title="Must contain 2 to 30 characters"
+                required 
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-8">
+              <label for="id_province">Province</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                name="province" 
+                placeholder="ex. Cebu"
+                value="{{customer.province}}" 
+                pattern="[a-zA-Z][a-zA-Z ]{2,30}"
+                title="Must contain 2 to 30 characters"
+                required 
+              />
+            </div>
+            <div class="form-group col-md-4">
+              <label for="id_zip_code">Zip Code</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                name="zip_code" 
+                placeholder="ex. 6000"
+                value="{{customer.zip_code}}" 
+                pattern="[\d*].{3,4}"
+                title="Must contain 3 to 4 characters, numbers only"
+                required 
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md">
+              <label for="id_country">Country</label>
+              <select id="country" name="country" class="form-control" required>
+                {% load countries %}
+                {% get_countries as countries %}
+                {% for country in countries %}
+                <option value="{{ country.code }}" {% if country.code == customer.country %} selected="selected"
+                  {% endif %}>{{ country.name }}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md">
+              <label for="id_civil_status">Civil Status</label>
+              <select id="status" name="status" class="form-control" onchange="showDiv('spouse-available',this)" required>
+                {% for status in status_choices %}
+                <option value="{{status.0}}" {% if status.0 == customer.status %} selected {% endif %}>
+                  {{status.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md">
+              <label for="id_gender">Gender</label>
+              <select id="sex" name="gender" class="form-control" placeholder="{{customer.gender}}" required>
+                {% for gender in gender_choices %}
+                <option value="{{gender.0}}" {% if status.0 == customer.gender %} selected {% endif %}>
+                  {{gender.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="bdate">Birthdate</label>
+            <input 
+              type="date" 
+              class="form-control" 
+              id="bdate" 
+              name="birth_date"
+              value="{{customer.birth_date|date:"Y-m-d"}}" 
+              required
+            />
+          </div>
+          <br>
+          <h6>If you're married, fill in spouse's information</h6>
+          <div id="spouse-available">
+            <div class="form-row">
+              <div class="form-group col-md">
+                <label for="id_spouse_name">Spouse's Full Name</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  name="spouse_name"
+                  placeholder="First Name, Last Name (ex. Jonathan Jubeth Gamboa)"
+                  value="{{customer.spouse_name}}"
+                  pattern="[a-zA-Z][a-zA-Z ][a-zA-Z. ]{10,30}"
+                  title="Must contain 10 to characters"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md">
+                <label for="id_spouse_occupation">Spouse's Occupation</label>
+                <input 
+                  type="text" class="form-control" 
+                  name="spouse_occupation" 
+                  value="{{customer.spouse_occupation}}"
+                  placeholder="ex. Engineer" 
+                  pattern="[a-zA-Z][a-zA-Z ]{2,30}"
+                  title="Must contain 2 to 30 characters" 
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md">
+                <label for="id_number_of_children">Number of Children</label>
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  name="number_of_children"
+                  value="{{customer.number_of_children}}" 
+                  placeholder="ex. 6 (if none, type 0)" 
+                  minlength="1"
+                  maxlength="2"
+                  pattern="[\d*]{1,2}"
+                  title="Must contain 1 to 2 characters, numbers only"
+                  required 
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md">
+              <label for="id_mother_name">Mother's Full Name</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                name="mother_name"
+                placeholder="First Name, Last Name (ex. Jonathan Jubeth Gamboa)"
+                value="{{customer.mother_name}}"
+                pattern="[a-zA-Z][a-zA-Z ][a-zA-Z. ]{10,30}" 
+                title="Must contain 10 to 30 characters"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md">
+              <label for="id_mother_occupation">Mothers's Occupation</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                name="mother_occupation" 
+                placeholder="ex. Engineer"
+                value="{{customer.mother_occupation}}" 
+                pattern="[a-zA-Z][a-zA-Z ]{2,30}"  
+                title="Must contain 2 to 30 characters"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md">
+              <label for="id_father_name">Father's Full Name</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                name="father_name"
+                placeholder="First Name, Last Name (ex. Jonathan Jubeth Gamboa)"
+                value="{{customer.father_name}}" 
+                pattern="[a-zA-Z][a-zA-Z ][a-zA-Z. ]{10,30}"
+                title="Must contain 10 to 30 characters"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md">
+              <label for="id_father_occupation">Father's Occupation</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                name="father_occupation" 
+                placeholder="ex. Engineer"
+                value="{{customer.father_occupation}}" 
+                pattern="[a-zA-Z][a-zA-Z ]{2,30}"  
+                title="Must contain 2 to 30 characters"
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="id_height">Height</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                name="height" 
+                placeholder="Input in centimeters (ex. 170)"
+                value="{{customer.height}}" 
+                pattern="[\d*].{2,3}"
+                title="Must contain 2 to 3 characters, numbers only"
+                required 
+              >
+            </div>
+            <div class="form-group col-md-6">
+              <label for="id_weight">Weight</label>
+              <input
+                type="number" 
+                class="form-control" 
+                name="weight" 
+                placeholder="Input in kilograms (ex. 65)" 
+                minlength="2"
+                maxlength="3"
+                pattern="[\d*].{2,3}" 
+                title="Must contain 2 to 3 characters, numbers only"
+                value="{{customer.weight}}" 
+                required 
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md">
+              <label for="id_religion">Religion</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                name="religion" 
+                placeholder="ex. Roman Catholic"
+                value="{{customer.religion}}" 
+                pattern="[a-zA-Z][a-zA-Z ]{2,30}"
+                title="Must contain 2 to 30 characters" 
+              />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" class="btn btn-primary" name="btnUpdate" id="btnUpdate">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Delete Modal -->
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="modal-body">
+          <input type="text" class="form-control" id="id" name="id" value="{{customer.id}}" hidden />
+          Do you really want to delete this particular record? This process
+          cannot be undone.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cancel
+          </button>
+          <button type="submit" id="btnDelete" name="btnDelete" class="btn btn-danger">Confirm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endfor %}
 
 <!-- End your project here-->
 {% endblock %}

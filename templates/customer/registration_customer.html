@@ -70,149 +70,299 @@
 							<h3 class="mt-3 mb-5">Personal Information</h3>
 							<div class="form-row">
 								<div class="form-group col-md-7">
-									<label for="first_name">First Name</label>
-									<input type="text" class="form-control" id="first_name" name="first_name"
-										placeholder="ex. Gilmar Dave" required/>
+								  <label for="first_name">First Name</label>
+								  <input
+									type="text"
+									class="form-control"
+									id="first_name"
+									name="first_name"
+									placeholder="ex. Gilmar Dave"
+									value="{{customer.first_name}}"
+									pattern="[a-zA-Z][a-zA-Z ]{2,30}"
+									title="Must contain at least 2 to 30 characters, without numbers and symbols"
+									required
+								  />
 								</div>
 								<div class="form-group col-md-5">
-									<label for="id_last_name">Last Name</label>
-									<input type="text" class="form-control" name="last_name" placeholder="ex. Gamboa"
-										required />
+								  <label for="id_last_name">Last Name</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="last_name" 
+									placeholder="ex. Gamboa"
+									value="{{customer.last_name}}" 
+									pattern="[a-zA-Z][a-zA-Z ]{2,30}" 
+									title="Must contain at least 2 to 30 characters, without numbers and symbols"
+									required 
+								  />
 								</div>
-							</div>
-							<h6>Complete Address</h6>
-							<div class="form-row">
+							  </div>
+							  <h6>Complete Address</h6>
+							  <div class="form-row">
 								<div class="form-group col-md">
-									<label for="id_street">Street</label>
-									<input type="text" class="form-control" name="street"
-										placeholder="ex. 221B Baker Street" required />
+								  <label for="id_street">Street</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="street" 
+									placeholder="ex. 221B Baker Street"
+									pattern=".{2,30}"
+									title="Must contain 2 to 30 characters"
+									value="{{customer.street}}" 
+									required 
+								  />
 								</div>
-							</div>
-							<div class="form-row">
+							  </div>
+							  <div class="form-row">
 								<div class="form-group col-md-6">
-									<label for="id_barangay">Barangay</label>
-									<input type="text" class="form-control" name="barangay" placeholder="ex. Bulacao"
-										required />
+								  <label for="id_barangay">Barangay</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="barangay" 
+									placeholder="ex. Bulacao"
+									value="{{customer.barangay}}"
+									pattern=".{2,30}"
+									title="Must contain 2 to 30 characters"
+									required 
+								  />
 								</div>
 								<div class="form-group col-md-6">
-									<label for="id_city">City</label>
-									<input type="text" class="form-control" name="city" placeholder="ex. Cebu City" />
+								  <label for="id_city">City</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="city" 
+									placeholder="ex. Cebu City" 
+									value="{{customer.city}}"
+									pattern="[a-zA-Z][a-zA-Z ]{2,30}"
+									title="Must contain 2 to 30 characters"
+									required 
+								  />
 								</div>
-							</div>
-							<div class="form-row">
+							  </div>
+							  <div class="form-row">
 								<div class="form-group col-md-8">
-									<label for="id_province">Province</label>
-									<input type="text" class="form-control" name="province" placeholder="ex. Cebu"
-										required />
+								  <label for="id_province">Province</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="province" 
+									placeholder="ex. Cebu"
+									value="{{customer.province}}" 
+									pattern="[a-zA-Z][a-zA-Z ]{2,30}"
+									title="Must contain 2 to 30 characters"
+									required 
+								  />
 								</div>
 								<div class="form-group col-md-4">
-									<label for="id_zip_code">Zip Code</label>
-									<input type="number" class="form-control" name="zip_code" placeholder="ex. 6000"\
-									maxlength="4" minlength="3" required />
+								  <label for="id_zip_code">Zip Code</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="zip_code" 
+									placeholder="ex. 6000"
+									value="{{customer.zip_code}}" 
+									pattern="[\d*].{3,4}"
+									title="Must contain 3 to 4 characters, numbers only"
+									required 
+								  />
 								</div>
-							</div>
-							<div class="form-row">
+							  </div>
+							  <div class="form-row">
 								<div class="form-group col-md">
-									<label for="id_country">Country</label>
-									<select id="country" name="country" class="form-control" required>
-										{% for country in form.country %} {{country}} {% endfor %}
-									</select>
+								  <label for="id_country">Country</label>
+								  <select id="country" name="country" class="form-control" required>
+									{% load countries %}
+									{% get_countries as countries %}
+									{% for country in countries %}
+									<option value="{{ country.code }}" {% if country.code == customer.country %} selected="selected"
+									  {% endif %}>{{ country.name }}</option>
+									{% endfor %}
+								  </select>
 								</div>
-							</div>
-							<div class="form-row">
+							  </div>
+							  <div class="form-row">
 								<div class="form-group col-md">
-									<label for="id_civil_status">Civil Status</label>
-									<select id="status" name="status" class="form-control" required>
-										{% for status in form.status %} {{status}} {% endfor %}
-									</select>
+								  <label for="id_civil_status">Civil Status</label>
+								  <select id="status" name="status" class="form-control" onchange="showDiv('spouse-available',this)" required>
+									{% for status in status_choices %}
+									<option value="{{status.0}}" {% if status.0 == customer.status %} selected {% endif %}>
+									  {{status.name}}</option>
+									{% endfor %}
+								  </select>
 								</div>
-							</div>
-							<div class="form-row">
+							  </div>
+							  <div class="form-row">
 								<div class="form-group col-md">
-									<label for="id_gender">Gender</label>
-									<select id="sex" name="gender" class="form-control" required>
-										{% for gender in form.gender %} {{gender}} {% endfor %}
-									</select>
+								  <label for="id_gender">Gender</label>
+								  <select id="sex" name="gender" class="form-control" placeholder="{{customer.gender}}" required>
+									{% for gender in gender_choices %}
+									<option value="{{gender.0}}" {% if status.0 == customer.gender %} selected {% endif %}>
+									  {{gender.name}}</option>
+									{% endfor %}
+								  </select>
 								</div>
-							</div>
-							<div class="form-row">
+							  </div>
+							  <div class="form-row">
 								<label for="bdate">Birthdate</label>
-                       			<input type="date" class="form-control" id="bdate" name="birth_date" required>
-							</div>
-							<br>
-							<h6>If you're married, fill in spouse's information</h6>
-							<div class="spouse-available">
+								<input 
+								  type="date" 
+								  class="form-control" 
+								  id="bdate" 
+								  name="birth_date"
+								  value="{{customer.birth_date|date:"Y-m-d"}}" 
+								  required
+								/>
+							  </div>
+							  <br>
+							  <h6>If you're married, fill in spouse's information</h6>
+							  <div id="spouse-available">
 								<div class="form-row">
-									<div class="form-group col-md">
-										<label for="id_spouse_name">Spouse's Full Name</label>
-										<input type="text" class="form-control" name="spouse_name"
-											placeholder="First Name, M.I, Last Name (ex. Jonathan Jubeth O.Gamboa)" />
-									</div>
+								  <div class="form-group col-md">
+									<label for="id_spouse_name">Spouse's Full Name</label>
+									<input 
+									  type="text" 
+									  class="form-control" 
+									  name="spouse_name"
+									  placeholder="First Name, Last Name (ex. Jonathan Jubeth Gamboa)"
+									  value="{{customer.spouse_name}}"
+									  pattern="[a-zA-Z][a-zA-Z ][a-zA-Z. ]{10,30}"
+									  title="Must contain 10 to characters"
+									/>
+								  </div>
 								</div>
 								<div class="form-row">
-									<div class="form-group col-md">
-										<label for="id_spouse_occupation">Spouse's Occupation</label>
-										<input type="text" class="form-control" name="spouse_occupation"
-											placeholder="ex. Engineer" />
-									</div>
+								  <div class="form-group col-md">
+									<label for="id_spouse_occupation">Spouse's Occupation</label>
+									<input 
+									  type="text" class="form-control" 
+									  name="spouse_occupation" 
+									  value="{{customer.spouse_occupation}}"
+									  placeholder="ex. Engineer" 
+									  pattern="[a-zA-Z][a-zA-Z ]{2,30}"
+									  title="Must contain 2 to 30 characters" 
+									/>
+								  </div>
 								</div>
 								<div class="form-row">
-									<div class="form-group col-md">
-										<label for="id_number_of_children">Number of Children</label>
-										<input type="number" class="form-control" name="number_of_children"
-											placeholder="ex. 6" min="0" required/>
-									</div>
+								  <div class="form-group col-md">
+									<label for="id_number_of_children">Number of Children</label>
+									<input 
+									  type="text" 
+									  class="form-control" 
+									  name="number_of_children"
+									  value="{{customer.number_of_children}}" 
+									  placeholder="ex. 6 (if none, type 0)" 
+									  minlength="1"
+									  maxlength="2"
+									  pattern="[\d*]{1,2}"
+									  title="Must contain 1 to 2 characters, numbers only"
+									  required 
+									/>
+								  </div>
 								</div>
-							</div>
-							<div class="form-row">
+							  </div>
+							  <div class="form-row">
 								<div class="form-group col-md">
-									<label for="id_mother_name">Mother's Full Name</label>
-									<input type="text" class="form-control" name="mother_name"
-										placeholder="First Name, M.I, Last Name (ex. Jonathan Jubeth O.Gamboa)"
-										 />
+								  <label for="id_mother_name">Mother's Full Name</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="mother_name"
+									placeholder="First Name, Last Name (ex. Jonathan Jubeth Gamboa)"
+									value="{{customer.mother_name}}"
+									pattern="[a-zA-Z][a-zA-Z ][a-zA-Z. ]{10,30}" 
+									title="Must contain 10 to 30 characters"
+								  />
 								</div>
-							</div>
-							<div class="form-row">
+							  </div>
+							  <div class="form-row">
 								<div class="form-group col-md">
-									<label for="id_mother_occupation">Mothers's Occupation</label>
-									<input type="text" class="form-control" name="mother_occupation"
-										placeholder="ex. Engineer"  />
+								  <label for="id_mother_occupation">Mothers's Occupation</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="mother_occupation" 
+									placeholder="ex. Engineer"
+									value="{{customer.mother_occupation}}" 
+									pattern="[a-zA-Z][a-zA-Z ]{2,30}"  
+									title="Must contain 2 to 30 characters"
+								  />
 								</div>
-							</div>
-							<div class="form-row">
+							  </div>
+							  <div class="form-row">
 								<div class="form-group col-md">
-									<label for="id_father_name">Father's Full Name</label>
-									<input type="text" class="form-control" name="father_name"
-										placeholder="First Name, M.I, Last Name (ex. Jonathan Jubeth O.Gamboa)"
-										 />
+								  <label for="id_father_name">Father's Full Name</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="father_name"
+									placeholder="First Name, Last Name (ex. Jonathan Jubeth Gamboa)"
+									value="{{customer.father_name}}" 
+									pattern="[a-zA-Z][a-zA-Z ][a-zA-Z. ]{10,30}"
+									title="Must contain 10 to 30 characters"
+								  />
 								</div>
-							</div>
-							<div class="form-row">
+							  </div>
+							  <div class="form-row">
 								<div class="form-group col-md">
-									<label for="id_father_occupation">Father's Occupation</label>
-									<input type="text" class="form-control" name="father_occupation"
-										placeholder="ex. Engineer"  />
+								  <label for="id_father_occupation">Father's Occupation</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="father_occupation" 
+									placeholder="ex. Engineer"
+									value="{{customer.father_occupation}}" 
+									pattern="[a-zA-Z][a-zA-Z ]{2,30}"  
+									title="Must contain 2 to 30 characters"
+								  />
 								</div>
-							</div>
-							<div class="form-row">
+							  </div>
+							  <div class="form-row">
 								<div class="form-group col-md-6">
-									<label for="id_height">Height</label>
-									<input type="number" class="form-control" name="height"
-										placeholder="Input in centimeters (ex. 170)" required min="0"/>
+								  <label for="id_height">Height</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="height" 
+									placeholder="Input in centimeters (ex. 170)"
+									value="{{customer.height}}" 
+									pattern="[\d*].{2,3}"
+									title="Must contain 2 to 3 characters, numbers only"
+									required 
+								  >
 								</div>
 								<div class="form-group col-md-6">
-									<label for="id_weight">Weight</label>
-									<input type="number" class="form-control" name="weight"
-										placeholder="Input in kilograms (ex. 65)" required min="0"/>
+								  <label for="id_weight">Weight</label>
+								  <input
+									type="number" 
+									class="form-control" 
+									name="weight" 
+									placeholder="Input in kilograms (ex. 65)" 
+									minlength="2"
+									maxlength="3"
+									pattern="[\d*].{2,3}" 
+									title="Must contain 2 to 3 characters, numbers only"
+									value="{{customer.weight}}" 
+									required 
+								  />
 								</div>
-							</div>
-							<div class="form-row">
+							  </div>
+							  <div class="form-row">
 								<div class="form-group col-md">
-									<label for="id_religion">Religion</label>
-									<input type="text" class="form-control" name="religion"
-										placeholder="ex. Roman Catholic" />
+								  <label for="id_religion">Religion</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="religion" 
+									placeholder="ex. Roman Catholic"
+									value="{{customer.religion}}" 
+									pattern="[a-zA-Z][a-zA-Z ]{2,30}"
+									title="Must contain 2 to 30 characters" 
+								  />
 								</div>
-							</div>
+							  </div>
 							<div class="form-row">
 								<div class="form-group col-md-6">
 									<label for="img">Select image:</label>
@@ -538,7 +688,7 @@
 									</button>
 								</div>
 								<div class="form-group col-md-3">
-									<button type="submit" class="btn btn-primary btn-block" id='btnUpdate'>
+									<button type="submit" class="btn btn-primary btn-block">
 										Proceed
 									</button>
 								</div>

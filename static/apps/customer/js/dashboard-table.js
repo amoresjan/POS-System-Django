@@ -65,3 +65,8 @@ $.fn.dataTableExt.afnFiltering.push(function (oSettings, aData, iDataIndex) {
 
   return true;
 });
+
+function showDiv(divId, element)
+{
+  document.getElementById(divId).style.display = element.value == 'M' ? 'block' : 'none';
+}
