@@ -235,16 +235,30 @@
               <div class="form-row">
                 <div class="form-group col-md mrg-top">
                   <label for="product_category">Product Category</label>
-                  <input type="text" class="form-control" id="product_category" name="product_category"
-                    value="{{i.product_category}}" required/>
+                  <input type="text" 
+                    class="form-control" 
+                    id="product_category" 
+                    name="product_category"
+                    value="{{i.product_category}}"
+                    pattern="{2,30}"
+                    title="Must contain at least 2 to 30 characters"
+                    required
+                  />
                 </div>
                 </div>
 
                 <div class="form-row">
                   <div class="form-group col-md">
                     <label for="product_brand">Product Brand</label>
-                    <input type="text" class="form-control" id="product_brand" name="product_brand"
-                      value="{{i.product_brand}}" required/>
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      id="product_brand" 
+                      name="product_brand"
+                      value="{{i.product_brand}}"
+                      pattern="{2,30}"
+                      required
+                    />
                   </div>
                   </div>
 
@@ -262,24 +276,43 @@
                   <div class="form-row">
                     <div class="form-group col-md">
                       <label for="product_name">Product Name</label>
-                      <input type="text" class="form-control" id="product_name" name="product_name"
-                        value="{{i.product_name}}" required/>
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="product_name" 
+                        name="product_name"
+                        value="{{i.product_name}}"
+                        pattern="{2,30}"
+                        required
+                      />
                     </div>
                   </div>
 
                     <div class="form-row">
                       <div class="form-group col-md">
                         <label for="product_price">Product Price</label>
-                        <input type="number" class="form-control" id="product_price" name="product_price"
-                          value="{{i.product_price}}" required/>
+                        <input 
+                          type="number" 
+                          class="form-control" 
+                          id="product_price" 
+                          name="product_price"
+                          value="{{i.product_price}}"
+                          required
+                        />
                       </div>
                     </div>
                    
                     <div class="form-row">
                       <div class="form-group col-md">
                         <label for="num_items">Number of items</label>
-                        <input type="number" class="form-control" id="num_items" name="num_items"
-                          value="{{i.num_items}}" required/>
+                        <input 
+                          type="number" 
+                          class="form-control" 
+                          id="num_items" 
+                          name="num_items"
+                          value="{{i.num_items}}" 
+                          required
+                          />
                       </div>
                     </div>
           </div>
