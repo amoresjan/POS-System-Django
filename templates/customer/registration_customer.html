@@ -1,823 +1,675 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1, shrink-to-fit=no"
-		/>
-		<meta http-equiv="x-ua-compatible" content="ie=edge" />
-		<title>customer page</title>
 
-		<!-- Bootstrap core CSS -->
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-			integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-			crossorigin="anonymous"
-		/>
-		<!--Bootstrap Stepper 	-->
-		<link
-			rel="stylesheet"
-			href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css"
-		/>
-		<link
-			rel="stylesheet"
-			type="text/css"
-			href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css"
-		/>
-		<!-- Your custom styles (optional) -->
-		<link rel="stylesheet" href="{% static 'apps/customer/css/style.css' %}" />
-	</head>
+{% block scripts %}
+	<!-- JS, Popper.js, and jQuery -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous" defer></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+		crossorigin="anonymous" defer></script>
+	<!--Bootstrap Stepper-->
+	<script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js" defer></script>
+	<script src="{% static 'apps/customer/js/stepper.js' %}" defer></script>
+	<script src="{% static 'apps/customer/js/more-fields.js' %}" defer></script>
+{% endblock scripts%}
 
-	<body>
-		<!-- Start your project here-->
-		<!--Navigation bar here-->
-		{% include 'navbar.html' %}
-		<!--End of Navigation Bar-->
-		<!--Main content here-->
-		<main role="main" class="container">
-			<div class="bg-white shadow mt-5">
-				<div id="stepper1" class="bs-stepper linear">
-					<div class="bs-stepper-header">
-						<div class="step active" data-target="#test-l-1">
-							<button
-								type="button"
-								class="btn step-trigger"
-								aria-selected="true"
-							>
-								<span class="bs-stepper-circle">1</span>
-								<span class="bs-stepper-label">Personal Information</span>
-							</button>
-						</div>
-						<div class="line"></div>
-						<div class="step" data-target="#test-l-2">
-							<button
-								type="button"
-								class="btn step-trigger"
-								aria-selected="false"
-								disabled="disabled"
-							>
-								<span class="bs-stepper-circle">2</span>
-								<span class="bs-stepper-label">Educational Background</span>
-							</button>
-						</div>
-						<div class="line"></div>
-						<div class="step" data-target="#test-l-3">
-							<button
-								type="button"
-								class="btn step-trigger"
-								aria-selected="false"
-								disabled="disabled"
-							>
-								<span class="bs-stepper-circle">3</span>
-								<span class="bs-stepper-label">Professional Background</span>
-							</button>
-						</div>
+{% block stylesheets %}
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+	<!--Bootstrap Stepper 	-->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css" />
+	<!-- Your custom styles (optional) -->
+	<link rel="stylesheet" href="{% static 'apps/customer/css/style.css' %}" />
+{% endblock %}
+
+{% block title %} Customer Registration {% endblock title %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+	<!--Main content here-->
+	<main role="main" class="container">
+		<div class="bg-white shadow mt-5">
+			<div class="bs-stepper linear stepper1">
+				<div class="bs-stepper-header" role="tablist">
+					<div class="step" data-target="#test-l-1">
+						<button type="button" class="step-trigger" role="tab" id="stepper1trigger1"
+							aria-controls="test-l-1" aria-selected="false" disabled="disabled">
+							<span class="bs-stepper-circle">1</span>
+							<span class="bs-stepper-label">Personal</span>
+						</button>
 					</div>
-					<div class="bs-stepper-content">
-						<!-- Personal Information -->
-						<div id="test-l-1" class="content active dstepper-block fade">
-							<form>
-								<h3 class="mt-3 mb-5">Personal Information</h3>
-								<div class="form-row">
-									<div class="form-group col-md-7">
-										<label for="label__first-name">First Name</label>
-										<input
-											type="text"
-											class="form-control"
-											id="label__first-name"
-											placeholder="ex. Gilmar Dave"
-										/>
-									</div>
-									<div class="form-group col-md-5">
-										<label for="label__last-name">Last Name</label>
-										<input
-											type="text"
-											class="form-control"
-											id="label__last-name"
-											placeholder="ex. Gamboa"
-										/>
-									</div>
-								</div>
-								<h6>Complete Address</h6>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<label for="label__address-steet">Street</label>
-										<input
-											type="text"
-											class="form-control"
-											id="label__address-street"
-											placeholder="ex. 221B Baker Street"
-										/>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md-6">
-										<label for="label__address-barangay">Barangay</label>
-										<input
-											type="text"
-											class="form-control"
-											id="label__address-barangay"
-											placeholder="ex. Bulacao"
-										/>
-									</div>
-									<div class="form-group col-md-6">
-										<label for="label__address-city">City</label>
-										<input
-											type="text"
-											class="form-control"
-											id="label__address-city"
-											placeholder="ex. Cebu City"
-										/>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md-8">
-										<label for="label__address-province">Province</label>
-										<input
-											type="text"
-											class="form-control"
-											id="label__address-province"
-											placeholder="ex. Cebu"
-										/>
-									</div>
-									<div class="form-group col-md-4">
-										<label for="label__address-zip">Zip Code</label>
-										<input
-											type="text"
-											class="form-control"
-											id="label__address-zip"
-											placeholder="ex. 6000"
-										/>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<label for="label__address-country">Country</label>
-										<input
-											type="text"
-											class="form-control"
-											id="label__address-country"
-											placeholder="ex. Philippines"
-										/>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md-6 px-5">
-										<label for="label__civil-status">Civil Status</label>
-										<div class="form-check">
-											<input
-												class="form-check-input"
-												type="radio"
-												name="label__civil-status"
-												id="civil-status__single"
-												value="Single"
-											/>
-											<label
-												class="form-check-label"
-												for="civil-status__single"
-											>
-												Single
-											</label>
-										</div>
-										<div class="form-check">
-											<input
-												class="form-check-input"
-												type="radio"
-												name="label__civil-status"
-												id="civil-status__married"
-												value="Married"
-											/>
-											<label
-												class="form-check-label"
-												for="civil-status__married"
-											>
-												Married
-											</label>
-										</div>
-										<div class="form-check">
-											<input
-												class="form-check-input"
-												type="radio"
-												name="label__civil-status"
-												id="civil-status__widowed"
-												value="Widowed"
-											/>
-											<label
-												class="form-check-label"
-												for="civil-status__widowed"
-											>
-												Widowed
-											</label>
-										</div>
-										<div class="form-check">
-											<input
-												class="form-check-input"
-												type="radio"
-												name="label__civil-status"
-												id="civil-status_divorced"
-												value="Divorced"
-											/>
-											<label
-												class="form-check-label"
-												for="civil-status_divorced"
-											>
-												Divorced
-											</label>
-										</div>
-									</div>
-									<div class="form-group col-md-6 px-5">
-										<label for="label__gender">Gender</label>
-										<div class="form-check">
-											<input
-												class="form-check-input"
-												type="radio"
-												name="label__gender"
-												id="gender__male"
-												value="Male"
-											/>
-											<label class="form-check-label" for="gender__male">
-												Male
-											</label>
-										</div>
-										<div class="form-check">
-											<input
-												class="form-check-input"
-												type="radio"
-												name="label__gender"
-												id="gender__female"
-												value="Female"
-											/>
-											<label class="form-check-label" for="gender__female">
-												Female
-											</label>
-										</div>
-										<div class="form-check">
-											<input
-												class="form-check-input"
-												type="radio"
-												name="label__others"
-												id="gender__others"
-												value="Others"
-											/>
-											<label class="form-check-label" for="gender__others">
-												Others
-											</label>
-										</div>
-									</div>
-								</div>
-								<h6>If your married, fill in spouse's information</h6>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<label for="label__spouse-name">Spouse's Full Name</label>
-										<input
-											type="text"
-											class="form-control"
-											id="label__spouse-name"
-											placeholder="First Name, M.I, Last Name (ex. Jonathan Jubeth O.Gamboa)"
-										/>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<label for="label__spouse-occupation"
-											>Spouse's Occupation</label
-										>
-										<input
-											type="text"
-											class="form-control"
-											id="label__spouse-occupation"
-											placeholder="ex. Engineer"
-										/>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<label for="label__children">Number of Children</label>
-										<input
-											type="number"
-											class="form-control"
-											id="label__children"
-											placeholder="ex. 6"
-										/>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<label for="label__mother-name">Mother's Full Name</label>
-										<input
-											type="text"
-											class="form-control"
-											id="label__mothers-name"
-											placeholder="First Name, M.I, Last Name (ex. Jonathan Jubeth O.Gamboa)"
-										/>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<label for="label__mother-occupation"
-											>Mothers's Occupation</label
-										>
-										<input
-											type="text"
-											class="form-control"
-											id="label__mother-occupation"
-											placeholder="ex. Engineer"
-										/>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<label for="label__father-name">Father's Full Name</label>
-										<input
-											type="text"
-											class="form-control"
-											id="label__fathers-name"
-											placeholder="First Name, M.I, Last Name (ex. Jonathan Jubeth O.Gamboa)"
-										/>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<label for="label__father-occupation"
-											>Father's Occupation</label
-										>
-										<input
-											type="text"
-											class="form-control"
-											id="label__fathers-occupation"
-											placeholder="ex. Engineer"
-										/>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md-6">
-										<label for="label__height">Height</label>
-										<input
-											type="number"
-											class="form-control"
-											id="label__height"
-											placeholder="Input in centimeters (ex. 170)"
-										/>
-									</div>
-									<div class="form-group col-md-6">
-										<label for="label__height">Weight</label>
-										<input
-											type="number"
-											class="form-control"
-											id="label__height"
-											placeholder="Input in kilograms (ex. 65)"
-										/>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<label for="label__religion">Religion</label>
-										<input
-											type="text"
-											class="form-control"
-											id="label__religion"
-											placeholder="ex. Roman Catholic"
-										/>
-									</div>
-								</div>
-								
-								<div class="form-row">
-									<div class="form-group col-md-6"></div>
-									<div class="form-group col-md-3">
-										<a href="{% url 'customerDashboard' %}">
-											<button type="button" class="btn btn-danger btn-block">
-												Cancel
-											</button>
-										</a>
-									</div>
-									<div class="form-group col-md-3">
-										<button
-											type="button"
-											class="btn btn-primary btn-block"
-											onclick="stepper1.next()"
-										>
-											Proceed
-										</button>
-									</div>
-								</div>
-							</form>
-						</div>
-						<!-- Educational Background -->
-						<div id="test-l-2" class="content fade">
-							<form>
-								<h3 class="mt-3 mb-5">Educational Background</h3>
-								<!-- Elementary  -->
-								<h6>Elementary:</h6>
-								<div id="elementary-form">
-									<div id="elementary-form-block">
-										<div class="mt-5"></div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__school-elementary">School</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__school-elementary"
-													placeholder="ex. Cebu Institute of Technology - University"
-												/>
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__grade-elementary">Grade</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__grade-elementary"
-													placeholder="ex. Grade 9"
-												/>
-											</div>
-										</div>
-										<div id="awards-elementary">
-											<div class="form-row" id="elementary-form-mblock">
-												<div class="form-group col-md">
-													<label for="label__awards-elementary">Awards</label>
-													<input
-														type="text"
-														class="form-control"
-														id="label__awards-elementary"
-														placeholder="ex. Best in English"
-													/>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<button
-											type="button"
-											class="btn-block btn-primary"
-											onclick="addFields('elementary-form','elementary-form-block')"
-										>
-											Add School
-										</button>
-									</div>
-								</div>
-								<!-- High School -->
-								<hr />
-								<h6 class="mt-5">High School:</h6>
-								<div id="highschool-form">
-									<div id="highschool-form-block">
-										<div class="mt-5"></div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__school-highschool">School</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__school-highschool"
-													placeholder="ex. Cebu Institute of Technology - University"
-												/>
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__grade-highschool">Grade</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__grade-highschool"
-													placeholder="ex. Grade 9"
-												/>
-											</div>
-										</div>
-										<div id="awards-highschool">
-											<div class="form-row" id="highschool-form-mblock">
-												<div class="form-group col-md">
-													<label for="label__awards-highschool">Awards</label>
-													<input
-														type="text"
-														class="form-control"
-														id="label__awards-highschool"
-														placeholder="ex. Best in English"
-													/>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<button
-											type="button"
-											class="btn-block btn-primary"
-											onclick="addFields('highschool-form','highschool-form-block')"
-										>
-											Add School
-										</button>
-									</div>
-								</div>
-								<!-- Senior High School -->
-								<hr />
-								<h6 class="mt-5">Senior High School:</h6>
-								<div id="seniorhigh-form">
-									<div id="seniorhigh-form-block">
-										<div class="mt-5"></div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__school-seniorhigh">School</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__school-seniorhigh"
-													placeholder="ex. Cebu Institute of Technology - University"
-												/>
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__grade-seniorhigh">Grade</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__grade-seniorhigh"
-													placeholder="ex. Grade 9"
-												/>
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__strand-seniorhigh">Strand</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__strand-seniorhigh"
-													placeholder="ex. STEM"
-												/>
-											</div>
-										</div>
-										<div id="awards-seniorhigh">
-											<div class="form-row" id="seniorhigh-form-mblock">
-												<div class="form-group col-md">
-													<label for="label__awards-seniorhigh">Awards</label>
-													<input
-														type="text"
-														class="form-control"
-														id="label__awards-seniorhigh"
-														placeholder="ex. Best in English"
-													/>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<button
-											type="button"
-											class="btn-block btn-primary"
-											onclick="addFields('seniorhigh-form','seniorhigh-form-block')"
-										>
-											Add School
-										</button>
-									</div>
-								</div>
-								<hr />
-								<!-- College -->
-								<h6 class="mt-5">College</h6>
-								<div id="college-form">
-									<div id="college-form-block">
-										<div class="mt-5"></div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__school-college">School</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__school-college"
-													placeholder="ex. Cebu Institute of Technology - University"
-												/>
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__course-college">Course</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__course-college"
-													placeholder="ex. BS-Computer Science"
-												/>
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__level-college">Level</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__level-college"
-													placeholder="ex. 3rd YEAR"
-												/>
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__yearcompleted-college"
-													>Year Completed</label
-												>
-												<input
-													type="text"
-													class="form-control"
-													id="label__yearcompleted-college"
-													placeholder="ex. 2020"
-												/>
-											</div>
-										</div>
-										<div id="awards-college">
-											<div class="form-row" id="college-form-mblock">
-												<div class="form-group col-md">
-													<label for="label__awards-college">Awards</label>
-													<input
-														type="text"
-														class="form-control"
-														id="label__awards-college"
-														placeholder="ex. Best in English"
-													/>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<button
-											type="button"
-											class="btn-block btn-primary"
-											onclick="addFields('college-form','college-form-block')"
-										>
-											Add School
-										</button>
-									</div>
-								</div>
-								<!-- Post Graduate -->
-								<hr />
-								<h6 class="mt-5">Post Graduate</h6>
-								<div id="postgraduate-form">
-									<div id="postgraduate-form-block">
-										<div class="mt-5"></div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__school-postgraduate">School</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__school-postgraduate"
-													placeholder="ex. Cebu Institute of Technology - University"
-												/>
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__course-postgraduate">Course</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__course-postgraduate"
-													placeholder="ex. BS-Computer Science"
-												/>
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__level-postgraduate">Level</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__level-postgraduate"
-													placeholder="ex. 3rd YEAR"
-												/>
-											</div>
-										</div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__yearcompleted-postgraduate"
-													>Year Completed</label
-												>
-												<input
-													type="text"
-													class="form-control"
-													id="label__yearcompleted-postgraduate"
-													placeholder="ex. 2020"
-												/>
-											</div>
-										</div>
-										<div id="awards-postgraduate">
-											<div class="form-row" id="postgraduate-form-mblock">
-												<div class="form-group col-md">
-													<label for="label__awards-postgraduate">Awards</label>
-													<input
-														type="text"
-														class="form-control"
-														id="label__awards-postgraduate"
-														placeholder="ex. Best in English"
-													/>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<button
-											type="button"
-											class="btn-block btn-primary"
-											onclick="addFields('postgraduate-form','postgraduate-form-block')"
-										>
-											Add School
-										</button>
-									</div>
-								</div>
-							</form>
+					<div class="bs-stepper-line"></div>
+					<div class="step active" data-target="#test-l-2">
+						<button type="button" class="step-trigger" role="tab" id="stepper1trigger2"
+							aria-controls="test-l-2" aria-selected="true">
+							<span class="bs-stepper-circle">2</span>
+							<span class="bs-stepper-label">Education</span>
+						</button>
+					</div>
+					<div class="bs-stepper-line"></div>
+					<div class="step" data-target="#test-l-3">
+						<button type="button" class="step-trigger" role="tab" id="stepper1trigger3"
+							aria-controls="test-l-3" aria-selected="false" disabled="disabled">
+							<span class="bs-stepper-circle">3</span>
+							<span class="bs-stepper-label">Professional</span>
+						</button>
+					</div>
+				</div>
+				<div class="bs-stepper-content">
+					<form action="" method="POST" enctype="multipart/form-data">
+						<div id="test-l-1" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper1trigger1">
+							{% csrf_token %}
+							<h3 class="mt-3 mb-5">Personal Information</h3>
 							<div class="form-row">
-								<div class="form-group col-md-6"></div>
-								<div class="form-group col-md-3">
-									<button type="button" class="btn btn-danger btn-block">
-										Cancel
-									</button>
+								<div class="form-group col-md-7">
+								  <label for="first_name">First Name</label>
+								  <input
+									type="text"
+									class="form-control"
+									id="first_name"
+									name="first_name"
+									placeholder="ex. Gilmar Dave"
+									value="{{customer.first_name}}"
+									pattern="[a-zA-Z][a-zA-Z ]{2,30}"
+									title="Must contain at least 2 to 30 characters, without numbers and symbols"
+									required
+								  />
+								</div>
+								<div class="form-group col-md-5">
+								  <label for="id_last_name">Last Name</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="last_name" 
+									placeholder="ex. Gamboa"
+									value="{{customer.last_name}}" 
+									pattern="[a-zA-Z][a-zA-Z ]{2,30}" 
+									title="Must contain at least 2 to 30 characters, without numbers and symbols"
+									required 
+								  />
+								</div>
+							  </div>
+							  <h6>Complete Address</h6>
+							  <div class="form-row">
+								<div class="form-group col-md">
+								  <label for="id_street">Street</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="street" 
+									placeholder="ex. 221B Baker Street"
+									pattern=".{2,30}"
+									title="Must contain 2 to 30 characters"
+									value="{{customer.street}}" 
+									required 
+								  />
+								</div>
+							  </div>
+							  <div class="form-row">
+								<div class="form-group col-md-6">
+								  <label for="id_barangay">Barangay</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="barangay" 
+									placeholder="ex. Bulacao"
+									value="{{customer.barangay}}"
+									pattern=".{2,30}"
+									title="Must contain 2 to 30 characters"
+									required 
+								  />
+								</div>
+								<div class="form-group col-md-6">
+								  <label for="id_city">City</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="city" 
+									placeholder="ex. Cebu City" 
+									value="{{customer.city}}"
+									pattern="[a-zA-Z][a-zA-Z ]{2,30}"
+									title="Must contain 2 to 30 characters"
+									required 
+								  />
+								</div>
+							  </div>
+							  <div class="form-row">
+								<div class="form-group col-md-8">
+								  <label for="id_province">Province</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="province" 
+									placeholder="ex. Cebu"
+									value="{{customer.province}}" 
+									pattern="[a-zA-Z][a-zA-Z ]{2,30}"
+									title="Must contain 2 to 30 characters"
+									required 
+								  />
+								</div>
+								<div class="form-group col-md-4">
+								  <label for="id_zip_code">Zip Code</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="zip_code" 
+									placeholder="ex. 6000"
+									value="{{customer.zip_code}}" 
+									pattern="[\d*].{3,4}"
+									title="Must contain 3 to 4 characters, numbers only"
+									required 
+								  />
+								</div>
+							  </div>
+							  <div class="form-row">
+								<div class="form-group col-md">
+								  <label for="id_country">Country</label>
+								  <select id="country" name="country" class="form-control" required>
+									{% load countries %}
+									{% get_countries as countries %}
+									{% for country in countries %}
+									<option value="{{ country.code }}" {% if country.code == customer.country %} selected="selected"
+									  {% endif %}>{{ country.name }}</option>
+									{% endfor %}
+								  </select>
+								</div>
+							  </div>
+							  <div class="form-row">
+								<div class="form-group col-md">
+								  <label for="id_civil_status">Civil Status</label>
+								  <select id="status" name="status" class="form-control" onchange="showDiv('spouse-available',this)" required>
+									{% for status in status_choices %}
+									<option value="{{status.0}}" {% if status.0 == customer.status %} selected {% endif %}>
+									  {{status.name}}</option>
+									{% endfor %}
+								  </select>
+								</div>
+							  </div>
+							  <div class="form-row">
+								<div class="form-group col-md">
+								  <label for="id_gender">Gender</label>
+								  <select id="sex" name="gender" class="form-control" placeholder="{{customer.gender}}" required>
+									{% for gender in gender_choices %}
+									<option value="{{gender.0}}" {% if status.0 == customer.gender %} selected {% endif %}>
+									  {{gender.name}}</option>
+									{% endfor %}
+								  </select>
+								</div>
+							  </div>
+							  <div class="form-row">
+								<label for="bdate">Birthdate</label>
+								<input 
+								  type="date" 
+								  class="form-control" 
+								  id="bdate" 
+								  name="birth_date"
+								  value="{{customer.birth_date|date:"Y-m-d"}}" 
+								  required
+								/>
+							  </div>
+							  <br>
+							  <h6>If you're married, fill in spouse's information</h6>
+							  <div id="spouse-available">
+								<div class="form-row">
+								  <div class="form-group col-md">
+									<label for="id_spouse_name">Spouse's Full Name</label>
+									<input 
+									  type="text" 
+									  class="form-control" 
+									  name="spouse_name"
+									  placeholder="First Name, Last Name (ex. Jonathan Jubeth Gamboa)"
+									  value="{{customer.spouse_name}}"
+									  pattern="[a-zA-Z][a-zA-Z ][a-zA-Z. ]{10,30}"
+									  title="Must contain 10 to characters"
+									/>
+								  </div>
+								</div>
+								<div class="form-row">
+								  <div class="form-group col-md">
+									<label for="id_spouse_occupation">Spouse's Occupation</label>
+									<input 
+									  type="text" class="form-control" 
+									  name="spouse_occupation" 
+									  value="{{customer.spouse_occupation}}"
+									  placeholder="ex. Engineer" 
+									  pattern="[a-zA-Z][a-zA-Z ]{2,30}"
+									  title="Must contain 2 to 30 characters" 
+									/>
+								  </div>
+								</div>
+								<div class="form-row">
+								  <div class="form-group col-md">
+									<label for="id_number_of_children">Number of Children</label>
+									<input 
+									  type="text" 
+									  class="form-control" 
+									  name="number_of_children"
+									  value="{{customer.number_of_children}}" 
+									  placeholder="ex. 6 (if none, type 0)" 
+									  minlength="1"
+									  maxlength="2"
+									  pattern="[\d*]{1,2}"
+									  title="Must contain 1 to 2 characters, numbers only"
+									  required 
+									/>
+								  </div>
+								</div>
+							  </div>
+							  <div class="form-row">
+								<div class="form-group col-md">
+								  <label for="id_mother_name">Mother's Full Name</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="mother_name"
+									placeholder="First Name, Last Name (ex. Jonathan Jubeth Gamboa)"
+									value="{{customer.mother_name}}"
+									pattern="[a-zA-Z][a-zA-Z ][a-zA-Z. ]{10,30}" 
+									title="Must contain 10 to 30 characters"
+								  />
+								</div>
+							  </div>
+							  <div class="form-row">
+								<div class="form-group col-md">
+								  <label for="id_mother_occupation">Mothers's Occupation</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="mother_occupation" 
+									placeholder="ex. Engineer"
+									value="{{customer.mother_occupation}}" 
+									pattern="[a-zA-Z][a-zA-Z ]{2,30}"  
+									title="Must contain 2 to 30 characters"
+								  />
+								</div>
+							  </div>
+							  <div class="form-row">
+								<div class="form-group col-md">
+								  <label for="id_father_name">Father's Full Name</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="father_name"
+									placeholder="First Name, Last Name (ex. Jonathan Jubeth Gamboa)"
+									value="{{customer.father_name}}" 
+									pattern="[a-zA-Z][a-zA-Z ][a-zA-Z. ]{10,30}"
+									title="Must contain 10 to 30 characters"
+								  />
+								</div>
+							  </div>
+							  <div class="form-row">
+								<div class="form-group col-md">
+								  <label for="id_father_occupation">Father's Occupation</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="father_occupation" 
+									placeholder="ex. Engineer"
+									value="{{customer.father_occupation}}" 
+									pattern="[a-zA-Z][a-zA-Z ]{2,30}"  
+									title="Must contain 2 to 30 characters"
+								  />
+								</div>
+							  </div>
+							  <div class="form-row">
+								<div class="form-group col-md-6">
+								  <label for="id_height">Height</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="height" 
+									placeholder="Input in centimeters (ex. 170)"
+									value="{{customer.height}}" 
+									pattern="[\d*].{2,3}"
+									title="Must contain 2 to 3 characters, numbers only"
+									required 
+								  >
+								</div>
+								<div class="form-group col-md-6">
+								  <label for="id_weight">Weight</label>
+								  <input
+									type="number" 
+									class="form-control" 
+									name="weight" 
+									placeholder="Input in kilograms (ex. 65)" 
+									minlength="2"
+									maxlength="3"
+									pattern="[\d*].{2,3}" 
+									title="Must contain 2 to 3 characters, numbers only"
+									value="{{customer.weight}}" 
+									required 
+								  />
+								</div>
+							  </div>
+							  <div class="form-row">
+								<div class="form-group col-md">
+								  <label for="id_religion">Religion</label>
+								  <input 
+									type="text" 
+									class="form-control" 
+									name="religion" 
+									placeholder="ex. Roman Catholic"
+									value="{{customer.religion}}" 
+									pattern="[a-zA-Z][a-zA-Z ]{2,30}"
+									title="Must contain 2 to 30 characters" 
+								  />
+								</div>
+							  </div>
+							<div class="form-row">
+								<div class="form-group col-md-6">
+									<label for="img">Select image:</label>
+									<input type="file" name="profile_picture" />
 								</div>
 								<div class="form-group col-md-3">
-									<button
-										type="button"
-										class="btn btn-primary btn-block"
-										onclick="stepper1.next()"
-									>
+									<a href="{% url 'customerDashboard' %}">
+										<button type="button" class="btn btn-danger btn-block">
+											Go Back
+										</button>
+									</a>
+								</div>
+								<div class="form-group col-md-3">
+									<button type="button" class="btn btn-primary btn-block" onclick="stepper1.next()">
 										Proceed
 									</button>
 								</div>
 							</div>
 						</div>
-						<div id="test-l-3" class="content fade">
-							<form>
-								<h3 class="mt-3 mb-5">Professional Background</h3>
-								<h6 class="mt-5">Trainings</h6>
-								<div id="professional-form">
-									<div id="professional-form-block">
-										<div class="form-row mt-3">
-											<div class="form-group col-md">
-												<label for="label__professional-title">Title</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__professional-title"
-													placeholder="ex. Title"
-												/>
-											</div>
+						<div id="test-l-2" role="tabpanel" class="bs-stepper-pane active dstepper-block"
+							aria-labelledby="stepper1trigger2">
+							<h3 class="mt-3 mb-5">Educational Background</h3>
+							<!-- Elementary  -->
+							<h6>Elementary:</h6>
+							<div id="elementary-form">
+								<div id="elementary-form-block">
+									<div class="mt-5"></div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__school-elementary">School</label>
+											<input type="text" class="form-control" id="label__school-elementary"
+												placeholder="ex. Cebu Institute of Technology - University" />
 										</div>
-										<div class="form-row">
-											<div class="form-group col-md">
-												<label for="label__professional-sponsor">Sponsor</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__professional-sponsor"
-													placeholder="ex. Sponsor"
-												/>
-											</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__grade-elementary">Grade</label>
+											<input type="text" class="form-control" id="label__grade-elementary"
+												placeholder="ex. Grade 9" />
 										</div>
-										<div class="form-row">
-											<div class="form-group col-md-4">
-												<label for="label__professional-title">Date</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__professional-date"
-													placeholder="ex. 29/02/2019"
-												/>
-											</div>
-											<div class="form-group col-md-8">
-												<label for="label__professional-venue">Venue</label>
-												<input
-													type="text"
-													class="form-control"
-													id="label__professional-venue"
-													placeholder="ex. CIT - University, Cebu City"
-												/>
+									</div>
+									<div id="awards-elementary">
+										<div class="form-row" id="elementary-form-mblock">
+											<div class="form-group col-md">
+												<label for="label__awards-elementary">Awards</label>
+												<input type="text" class="form-control" id="label__awards-elementary"
+													placeholder="ex. Best in English" />
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="form-row">
-									<div class="form-group col-md">
-										<button
-											type="button"
-											class="btn-block btn-primary"
-											onclick="addFields('professional-form','professional-form-block')"
-										>
-											Add Trainings
-										</button>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md">
+									<button type="button" class="btn-block btn-primary"
+										onclick="addFields('elementary-form','elementary-form-block')">
+										Add School
+									</button>
+								</div>
+							</div>
+							<!-- High School -->
+							<hr />
+							<h6 class="mt-5">High School:</h6>
+							<div id="highschool-form">
+								<div id="highschool-form-block">
+									<div class="mt-5"></div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__school-highschool">School</label>
+											<input type="text" class="form-control" id="label__school-highschool"
+												placeholder="ex. Cebu Institute of Technology - University" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__grade-highschool">Grade</label>
+											<input type="text" class="form-control" id="label__grade-highschool"
+												placeholder="ex. Grade 9" />
+										</div>
+									</div>
+									<div id="awards-highschool">
+										<div class="form-row" id="highschool-form-mblock">
+											<div class="form-group col-md">
+												<label for="label__awards-highschool">Awards</label>
+												<input type="text" class="form-control" id="label__awards-highschool"
+													placeholder="ex. Best in English" />
+											</div>
+										</div>
 									</div>
 								</div>
-							</form>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md">
+									<button type="button" class="btn-block btn-primary"
+										onclick="addFields('highschool-form','highschool-form-block')">
+										Add School
+									</button>
+								</div>
+							</div>
+							<!-- Senior High School -->
+							<hr />
+							<h6 class="mt-5">Senior High School:</h6>
+							<div id="seniorhigh-form">
+								<div id="seniorhigh-form-block">
+									<div class="mt-5"></div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__school-seniorhigh">School</label>
+											<input type="text" class="form-control" id="label__school-seniorhigh"
+												placeholder="ex. Cebu Institute of Technology - University" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__grade-seniorhigh">Grade</label>
+											<input type="text" class="form-control" id="label__grade-seniorhigh"
+												placeholder="ex. Grade 9" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__strand-seniorhigh">Strand</label>
+											<input type="text" class="form-control" id="label__strand-seniorhigh"
+												placeholder="ex. STEM" />
+										</div>
+									</div>
+									<div id="awards-seniorhigh">
+										<div class="form-row" id="seniorhigh-form-mblock">
+											<div class="form-group col-md">
+												<label for="label__awards-seniorhigh">Awards</label>
+												<input type="text" class="form-control" id="label__awards-seniorhigh"
+													placeholder="ex. Best in English" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md">
+									<button type="button" class="btn-block btn-primary"
+										onclick="addFields('seniorhigh-form','seniorhigh-form-block')">
+										Add School
+									</button>
+								</div>
+							</div>
+							<hr />
+							<!-- College -->
+							<h6 class="mt-5">College</h6>
+							<div id="college-form">
+								<div id="college-form-block">
+									<div class="mt-5"></div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__school-college">School</label>
+											<input type="text" class="form-control" id="label__school-college"
+												placeholder="ex. Cebu Institute of Technology - University" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__course-college">Course</label>
+											<input type="text" class="form-control" id="label__course-college"
+												placeholder="ex. BS-Computer Science" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__level-college">Level</label>
+											<input type="text" class="form-control" id="label__level-college"
+												placeholder="ex. 3rd YEAR" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__yearcompleted-college">Year Completed</label>
+											<input type="text" class="form-control" id="label__yearcompleted-college"
+												placeholder="ex. 2020" />
+										</div>
+									</div>
+									<div id="awards-college">
+										<div class="form-row" id="college-form-mblock">
+											<div class="form-group col-md">
+												<label for="label__awards-college">Awards</label>
+												<input type="text" class="form-control" id="label__awards-college"
+													placeholder="ex. Best in English" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md">
+									<button type="button" class="btn-block btn-primary"
+										onclick="addFields('college-form','college-form-block')">
+										Add School
+									</button>
+								</div>
+							</div>
+							<!-- Post Graduate -->
+							<hr />
+							<h6 class="mt-5">Post Graduate</h6>
+							<div id="postgraduate-form">
+								<div id="postgraduate-form-block">
+									<div class="mt-5"></div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__school-postgraduate">School</label>
+											<input type="text" class="form-control" id="label__school-postgraduate"
+												placeholder="ex. Cebu Institute of Technology - University" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__course-postgraduate">Course</label>
+											<input type="text" class="form-control" id="label__course-postgraduate"
+												placeholder="ex. BS-Computer Science" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__level-postgraduate">Level</label>
+											<input type="text" class="form-control" id="label__level-postgraduate"
+												placeholder="ex. 3rd YEAR" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__yearcompleted-postgraduate">Year Completed</label>
+											<input type="text" class="form-control"
+												id="label__yearcompleted-postgraduate" placeholder="ex. 2020" />
+										</div>
+									</div>
+									<div id="awards-postgraduate">
+										<div class="form-row" id="postgraduate-form-mblock">
+											<div class="form-group col-md">
+												<label for="label__awards-postgraduate">Awards</label>
+												<input type="text" class="form-control" id="label__awards-postgraduate"
+													placeholder="ex. Best in English" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md">
+									<button type="button" class="btn-block btn-primary"
+										onclick="addFields('postgraduate-form','postgraduate-form-block')">
+										Add School
+									</button>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md-6"></div>
+								<div class="form-group col-md-3">
+									<button type="button" class="btn btn-danger btn-block" onclick="stepper1.previous()">
+										Cancel
+									</button>
+								</div>
+								<div class="form-group col-md-3">
+									<button type="button" class="btn btn-primary btn-block" onclick="stepper1.next()">
+										Proceed
+									</button>
+								</div>
+							</div>
+						</div>
+						<div id="test-l-3" role="tabpanel" class="bs-stepper-pane text-center"
+							aria-labelledby="stepper1trigger3">
+							<h3 class="mt-3 mb-5">Professional Background</h3>
+							<h6 class="mt-5">Trainings</h6>
+							<div id="professional-form">
+								<div id="professional-form-block">
+									<div class="form-row mt-3">
+										<div class="form-group col-md">
+											<label for="label__professional-title">Title</label>
+											<input type="text" class="form-control" id="label__professional-title"
+												placeholder="ex. Title" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md">
+											<label for="label__professional-sponsor">Sponsor</label>
+											<input type="text" class="form-control" id="label__professional-sponsor"
+												placeholder="ex. Sponsor" />
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+											<label for="label__professional-title">Date</label>
+											<input type="text" class="form-control" id="label__professional-date"
+												placeholder="ex. 29/02/2019" />
+										</div>
+										<div class="form-group col-md-8">
+											<label for="label__professional-venue">Venue</label>
+											<input type="text" class="form-control" id="label__professional-venue"
+												placeholder="ex. CIT - University, Cebu City" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-group col-md">
+									<button type="button" class="btn-block btn-primary"
+										onclick="addFields('professional-form','professional-form-block')">
+										Add Trainings
+									</button>
+								</div>
+							</div>
 							<div class="form-row">
 								<div class="form-group col-md-4">
 								  <!-- used for column -->
@@ -830,43 +682,21 @@
 							  </div>
 							<div class="form-row">
 								<div class="form-group col-md-6"></div>
-								<div class="form-group col-md-3"></div>
 								<div class="form-group col-md-3">
-									<button
-										type="button"
-										class="btn btn-primary btn-block"
-										onclick="stepper1.next(); goToTop();"
-									>
+									<button type="button" class="btn btn-danger btn-block" onclick="stepper1.previous()">
+										Go Back
+									</button>
+								</div>
+								<div class="form-group col-md-3">
+									<button type="submit" class="btn btn-primary btn-block">
 										Proceed
 									</button>
 								</div>
 							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
-		</main>
-		<!-- End your project here-->
-
-		<!-- JS, Popper.js, and jQuery -->
-		<script
-			src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-			integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-			crossorigin="anonymous"
-		></script>
-		<script
-			src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-			integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-			crossorigin="anonymous"
-		></script>
-		<!--Bootstrap Stepper-->
-		<script src="https://cdn.jsdelivr.net/npm/bs-stepper/dist/js/bs-stepper.min.js"></script>
-		<script src="{% static 'apps/customer/js/stepper.js' %}"></script>
-		<script src="{% static 'apps/customer/js/more-fields.js' %}"></script>
-	</body>
-</html>
+		</div>
+	</main>
+{% endblock %}
