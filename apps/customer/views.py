@@ -11,7 +11,7 @@ class customerDashboardView(View):
     customer_form = CustomerForm
 
     def get(self, request):
-        customers = Customer.objects.all() 
+        customers = Customer.objects.all() #pylint: disable=no-member
         context = {
             'customers': customers,
             'status_choices' : choices.Status,
@@ -20,17 +20,15 @@ class customerDashboardView(View):
         return render(request, 'customer/dashboard.html', context)
 
     def post(self, request):
-        customer = Customer.objects.get(id = request.POST.get('id'))
+        customer = Customer.objects.get(id = request.POST.get('id')) #pylint: disable=no-member
 
-        if 'btnUpdate' in request.POST:
-            form = self.customer_form(request.POST, request.FILES, instance=customer)
-
-            if form.is_valid():
-                form.save()
-                return redirect('customerDashboard')
-
-            return HttpResponse(form.errors)
-
+        if 'btnUpdate' in request.POST: 
+            form = self.customer_form(request.POST, request.FILES, instance=customer) 
+            if form.is_valid(): 
+                form.save() 
+                return redirect('customerDashboard') 
+            return HttpResponse(form.errors) 
+            
         elif 'btnDelete' in request.POST:
             customer.delete()
             return redirect('customerDashboard')
