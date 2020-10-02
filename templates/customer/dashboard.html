@@ -314,9 +314,7 @@
                   class="form-control" 
                   name="number_of_children"
                   value="{{customer.number_of_children}}" 
-                  placeholder="ex. 6 (if none, type 0)" 
-                  minlength="1"
-                  maxlength="2"
+                  placeholder="ex. 6 (if none, type 0)"
                   pattern="[\d*]{1,2}"
                   title="Must contain 1 to 2 characters, numbers only"
                   required 
@@ -333,7 +331,7 @@
                 name="mother_name"
                 placeholder="First Name, Last Name (ex. Jonathan Jubeth Gamboa)"
                 value="{{customer.mother_name}}"
-                pattern="[a-zA-Z][a-zA-Z ][a-zA-Z. ]{10,30}" 
+                pattern="[a-zA-Z][a-zA-Z ]{10,30}" 
                 title="Must contain 10 to 30 characters"
               />
             </div>
@@ -361,7 +359,7 @@
                 name="father_name"
                 placeholder="First Name, Last Name (ex. Jonathan Jubeth Gamboa)"
                 value="{{customer.father_name}}" 
-                pattern="[a-zA-Z][a-zA-Z ][a-zA-Z. ]{10,30}"
+                pattern="[a-zA-Z][a-zA-Z ]{10,30}"
                 title="Must contain 10 to 30 characters"
               />
             </div>
@@ -389,7 +387,7 @@
                 name="height" 
                 placeholder="Input in centimeters (ex. 170)"
                 value="{{customer.height}}" 
-                pattern="[\d*].{2,3}"
+                pattern="[\d*]{2,3}"
                 title="Must contain 2 to 3 characters, numbers only"
                 required 
               >
@@ -397,13 +395,11 @@
             <div class="form-group col-md-6">
               <label for="id_weight">Weight</label>
               <input
-                type="number" 
+                type="test" 
                 class="form-control" 
                 name="weight" 
                 placeholder="Input in kilograms (ex. 65)" 
-                minlength="2"
-                maxlength="3"
-                pattern="[\d*].{2,3}" 
+                pattern="[\d*]{2,3}" 
                 title="Must contain 2 to 3 characters, numbers only"
                 value="{{customer.weight}}" 
                 required 
