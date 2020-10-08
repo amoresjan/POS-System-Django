@@ -10,11 +10,15 @@
 						Customer <span class="sr-only">(current)</span>
 					</a>
 				</li>
-				<li>
-					<a class="nav-item nav-link" href="{% url 'productDashboard' %}">
-						Product
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					  Product
 					</a>
-				</li>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					  <a class="dropdown-item" href="{% url 'productDashboard' %}">Dashboard</a>
+					  <a class="dropdown-item" href="{% url 'productOrder' %}">Order</a>
+					</div>
+				  </li>
 			</ul>
 		</div>
 		<div id="navbar">
