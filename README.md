@@ -5,8 +5,7 @@
 2. `source env/bin/activate`
 3. `pip install -r requirements.txt`
 4. `python manage.py migrate`
-5. `python manage.py createsuperuser`
-6. `python manage.py loaddata data.json`
+5. `python manage.py loaddata data.json`
 
 ### **_reset database david_**
 
