@@ -1,16 +1,4 @@
 [{
-	"model": "admin.logentry",
-	"pk": 1,
-	"fields": {
-		"action_time": "2020-10-08T17:21:59.151Z",
-		"user": 1,
-		"content_type": 9,
-		"object_id": "3",
-		"object_repr": "Green Available 23",
-		"action_flag": 2,
-		"change_message": "[{\"changed\": {\"fields\": [\"Num items\"]}}]"
-	}
-}, {
 	"model": "auth.permission",
 	"pk": 1,
 	"fields": {
@@ -366,8 +354,8 @@
 	"model": "auth.user",
 	"pk": 1,
 	"fields": {
-		"password": "pbkdf2_sha256$216000$e9Sabvtnp2on$WOtO0u+NRx3LIDHLDXU6JFuNEIFJeJ3MGfnmksvnh70=",
-		"last_login": "2020-10-08T17:21:24.078Z",
+		"password": "pbkdf2_sha256$216000$7CqzLz21S1Ho$TX49TQYGTUo6L3Kx874mY48PIv1x1GeBlaV1euKbZno=",
+		"last_login": null,
 		"is_superuser": true,
 		"username": "admin",
 		"first_name": "",
@@ -375,7 +363,7 @@
 		"email": "",
 		"is_staff": true,
 		"is_active": true,
-		"date_joined": "2020-10-08T17:21:16.814Z",
+		"date_joined": "2020-10-08T18:44:29.370Z",
 		"groups": [],
 		"user_permissions": []
 	}
@@ -457,49 +445,14 @@
 		"model": "order"
 	}
 }, {
-	"model": "sessions.session",
-	"pk": "9z6bg1hdbj1rtejcymlx7e6sarv7fako",
-	"fields": {
-		"session_data": ".eJxVjMsOwiAURP-FtSFSeml16b7fQO4DpGogKe3K-O-WpAtdzpwz81YetzX5rYbFz6KuyqjTb0fIz5AbkAfme9Fc8rrMpJuiD1r1VCS8bof7d5Cwpn2NYgYOQBcADHYEFrb2LBD7DsXiKK7bgxCIODdgUw33FJ0gUgSnPl8VQjmo:1kQZbY:ia5oYW7zEKNanSsC3vsyT67dl5qR_q7mUblusIAj0As",
-		"expire_date": "2020-10-22T17:21:24.088Z"
-	}
-}, {
 	"model": "customer.person",
 	"pk": 1,
-	"fields": {
-		"first_name": "Gilmar Dave",
-		"middle_name": null,
-		"last_name": "Gamboa",
-		"profile_picture": "static/apps/customer/img/profile_pictures/unknown_sw2jQDT.png",
-		"street": "221B Baker Street",
-		"barangay": "Bulacao",
-		"city": "Cebu City",
-		"province": "Cebu",
-		"zip_code": "6000",
-		"country": "PH",
-		"gender": "M",
-		"birth_date": "1999-05-14",
-		"status": "S",
-		"spouse_name": "",
-		"spouse_occupation": "",
-		"number_of_children": 0,
-		"mother_name": "Roberta Amores",
-		"mother_occupation": "Pharmacist",
-		"father_name": "Magdaleno Amores",
-		"father_occupation": "Engineer",
-		"height": 170,
-		"weight": 65,
-		"religion": "Roman Catholic"
-	}
-}, {
-	"model": "customer.person",
-	"pk": 2,
 	"fields": {
 		"first_name": "Jan Dale",
 		"middle_name": null,
 		"last_name": "Amores",
-		"profile_picture": "static/apps/customer/img/profile_pictures/119136646_631402030845799_5705252906106491884__byf8XgH.png",
-		"street": "Lower Hills View",
+		"profile_picture": "static/apps/customer/img/profile_pictures/119174106_673530029921634_2877253329173880615__ZnpyBd4.jpg",
+		"street": "Hills View",
 		"barangay": "Tisa",
 		"city": "Cebu City",
 		"province": "Cebu",
@@ -521,20 +474,20 @@
 	}
 }, {
 	"model": "customer.person",
-	"pk": 3,
+	"pk": 2,
 	"fields": {
-		"first_name": "Jonathan Jubeth",
+		"first_name": "Gilmar Dave",
 		"middle_name": null,
-		"last_name": "Ollave",
-		"profile_picture": "static/apps/customer/img/profile_pictures/asd.png",
-		"street": "222B Baker Street",
-		"barangay": "Barangay",
-		"city": "Cebu City",
+		"last_name": "Gamboa",
+		"profile_picture": "static/apps/customer/img/profile_pictures/119136646_631402030845799_5705252906106491884__y1ULue9.png",
+		"street": "Street",
+		"barangay": "Bulacao",
+		"city": "City",
 		"province": "Cebu",
 		"zip_code": "6000",
 		"country": "PH",
 		"gender": "M",
-		"birth_date": "2000-12-12",
+		"birth_date": "2000-11-11",
 		"status": "S",
 		"spouse_name": "",
 		"spouse_occupation": "",
@@ -544,8 +497,36 @@
 		"father_name": "",
 		"father_occupation": "",
 		"height": 120,
-		"weight": 12,
-		"religion": "Atheist"
+		"weight": 120,
+		"religion": "Roman Catholic"
+	}
+}, {
+	"model": "customer.person",
+	"pk": 3,
+	"fields": {
+		"first_name": "Jonathan Jubeth",
+		"middle_name": null,
+		"last_name": "Ollave",
+		"profile_picture": "static/apps/customer/img/profile_pictures/unknown_MEgRWel.png",
+		"street": "Test",
+		"barangay": "Testing",
+		"city": "Cityy",
+		"province": "Cebuu",
+		"zip_code": "6001",
+		"country": "PH",
+		"gender": "M",
+		"birth_date": "1999-02-22",
+		"status": "S",
+		"spouse_name": "",
+		"spouse_occupation": "",
+		"number_of_children": 0,
+		"mother_name": "",
+		"mother_occupation": "",
+		"father_name": "",
+		"father_occupation": "",
+		"height": 432,
+		"weight": 123,
+		"religion": ""
 	}
 }, {
 	"model": "customer.customer",
@@ -574,12 +555,12 @@
 	"fields": {
 		"date_registered": "2020-10-09",
 		"product_category": "Shoes",
-		"product_name": "Boys Questar Flow Sneaker",
-		"product_brand": "Adidas",
+		"product_name": "Item",
+		"product_brand": "With",
 		"color": "B",
 		"product_dimension": "8M",
-		"product_price": "39.99",
-		"num_items": 100
+		"product_price": "23.45",
+		"num_items": 123
 	}
 }, {
 	"model": "product.product",
@@ -587,24 +568,11 @@
 	"fields": {
 		"date_registered": "2020-10-09",
 		"product_category": "Shoes",
-		"product_name": "Another New Shoes",
-		"product_brand": "Brand Shoe",
+		"product_name": "Item",
+		"product_brand": "Without",
 		"color": "W",
-		"product_dimension": "1M",
-		"product_price": "50.23",
-		"num_items": 2
-	}
-}, {
-	"model": "product.product",
-	"pk": 3,
-	"fields": {
-		"date_registered": "2020-10-09",
-		"product_category": "No",
-		"product_name": "Available",
-		"product_brand": "Item",
-		"color": "G",
-		"product_dimension": "23",
-		"product_price": "332.98",
+		"product_dimension": "23M",
+		"product_price": "99.99",
 		"num_items": 0
 	}
 }, {
@@ -612,20 +580,41 @@
 	"pk": 1,
 	"fields": {
 		"product": 1,
-		"image": "static/apps/product/img/profile_pictures/EiCijiZUwAErR4Y_ti5kZ0A.jpeg"
+		"image": "static/apps/product/img/profile_pictures/Air-Jordan-1-Bred-Toe-555088-610-Release-Date.jpg"
 	}
 }, {
 	"model": "product.images",
 	"pk": 2,
 	"fields": {
 		"product": 1,
-		"image": "static/apps/product/img/profile_pictures/unknown_kjn42Lt.png"
+		"image": "static/apps/product/img/profile_pictures/144690_01.jpg.jpeg"
 	}
 }, {
 	"model": "product.images",
 	"pk": 3,
 	"fields": {
+		"product": 1,
+		"image": "static/apps/product/img/profile_pictures/img01.jpg"
+	}
+}, {
+	"model": "product.images",
+	"pk": 4,
+	"fields": {
 		"product": 2,
-		"image": "static/apps/product/img/profile_pictures/NINTCHDBPICT000439378263.jpg"
+		"image": "static/apps/product/img/profile_pictures/Superstar_Shoes_White_EG4958.jpg"
+	}
+}, {
+	"model": "product.images",
+	"pk": 5,
+	"fields": {
+		"product": 2,
+		"image": "static/apps/product/img/profile_pictures/Superstar_Shoes_White_EG4958_01_standard.jpg"
+	}
+}, {
+	"model": "product.images",
+	"pk": 6,
+	"fields": {
+		"product": 2,
+		"image": "static/apps/product/img/profile_pictures/61NLmkwQIvL._AC_UL1276_.jpg"
 	}
 }]
