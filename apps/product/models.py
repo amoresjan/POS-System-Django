@@ -45,8 +45,24 @@ class Product(models.Model):
         default=0
     )
 
+    def color_name(self):
+        return self.get_color_display() #pylint: disable=no-member
+
+    def full_description(self):
+        return "".join(
+            [
+                str(self.get_color_display()), #pylint: disable=no-member
+                " ",
+                str(self.product_name),
+                " ",
+                str(self.product_dimension)
+    
+            ]
+        )
+
+
     def __str__(self):
-        return self.product_name
+        return self.full_description()
 
 
 class Images(models.Model):
