@@ -11,6 +11,14 @@ $(document).ready(function () {
     ],
   });
 
+$(document).ready(function calc() {
+  var quantity = document.getElementById("quantity").value;
+  var price = document.getElementById("product_price").value;
+  document.getElementById("final_price").value = (price * quantity).toFixed(2);
+  document.getElementById('cash_received').setAttribute('min', document.getElementById("final_price").value);
+});
+
+
   $("#datepicker_from")
     .datepicker({
       showOn: "button",

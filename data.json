@@ -1,0 +1,631 @@
+[{
+	"model": "admin.logentry",
+	"pk": 1,
+	"fields": {
+		"action_time": "2020-10-08T17:21:59.151Z",
+		"user": 1,
+		"content_type": 9,
+		"object_id": "3",
+		"object_repr": "Green Available 23",
+		"action_flag": 2,
+		"change_message": "[{\"changed\": {\"fields\": [\"Num items\"]}}]"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 1,
+	"fields": {
+		"name": "Can add log entry",
+		"content_type": 1,
+		"codename": "add_logentry"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 2,
+	"fields": {
+		"name": "Can change log entry",
+		"content_type": 1,
+		"codename": "change_logentry"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 3,
+	"fields": {
+		"name": "Can delete log entry",
+		"content_type": 1,
+		"codename": "delete_logentry"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 4,
+	"fields": {
+		"name": "Can view log entry",
+		"content_type": 1,
+		"codename": "view_logentry"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 5,
+	"fields": {
+		"name": "Can add permission",
+		"content_type": 2,
+		"codename": "add_permission"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 6,
+	"fields": {
+		"name": "Can change permission",
+		"content_type": 2,
+		"codename": "change_permission"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 7,
+	"fields": {
+		"name": "Can delete permission",
+		"content_type": 2,
+		"codename": "delete_permission"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 8,
+	"fields": {
+		"name": "Can view permission",
+		"content_type": 2,
+		"codename": "view_permission"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 9,
+	"fields": {
+		"name": "Can add group",
+		"content_type": 3,
+		"codename": "add_group"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 10,
+	"fields": {
+		"name": "Can change group",
+		"content_type": 3,
+		"codename": "change_group"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 11,
+	"fields": {
+		"name": "Can delete group",
+		"content_type": 3,
+		"codename": "delete_group"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 12,
+	"fields": {
+		"name": "Can view group",
+		"content_type": 3,
+		"codename": "view_group"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 13,
+	"fields": {
+		"name": "Can add user",
+		"content_type": 4,
+		"codename": "add_user"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 14,
+	"fields": {
+		"name": "Can change user",
+		"content_type": 4,
+		"codename": "change_user"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 15,
+	"fields": {
+		"name": "Can delete user",
+		"content_type": 4,
+		"codename": "delete_user"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 16,
+	"fields": {
+		"name": "Can view user",
+		"content_type": 4,
+		"codename": "view_user"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 17,
+	"fields": {
+		"name": "Can add content type",
+		"content_type": 5,
+		"codename": "add_contenttype"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 18,
+	"fields": {
+		"name": "Can change content type",
+		"content_type": 5,
+		"codename": "change_contenttype"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 19,
+	"fields": {
+		"name": "Can delete content type",
+		"content_type": 5,
+		"codename": "delete_contenttype"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 20,
+	"fields": {
+		"name": "Can view content type",
+		"content_type": 5,
+		"codename": "view_contenttype"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 21,
+	"fields": {
+		"name": "Can add session",
+		"content_type": 6,
+		"codename": "add_session"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 22,
+	"fields": {
+		"name": "Can change session",
+		"content_type": 6,
+		"codename": "change_session"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 23,
+	"fields": {
+		"name": "Can delete session",
+		"content_type": 6,
+		"codename": "delete_session"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 24,
+	"fields": {
+		"name": "Can view session",
+		"content_type": 6,
+		"codename": "view_session"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 25,
+	"fields": {
+		"name": "Can add person",
+		"content_type": 7,
+		"codename": "add_person"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 26,
+	"fields": {
+		"name": "Can change person",
+		"content_type": 7,
+		"codename": "change_person"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 27,
+	"fields": {
+		"name": "Can delete person",
+		"content_type": 7,
+		"codename": "delete_person"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 28,
+	"fields": {
+		"name": "Can view person",
+		"content_type": 7,
+		"codename": "view_person"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 29,
+	"fields": {
+		"name": "Can add customer",
+		"content_type": 8,
+		"codename": "add_customer"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 30,
+	"fields": {
+		"name": "Can change customer",
+		"content_type": 8,
+		"codename": "change_customer"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 31,
+	"fields": {
+		"name": "Can delete customer",
+		"content_type": 8,
+		"codename": "delete_customer"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 32,
+	"fields": {
+		"name": "Can view customer",
+		"content_type": 8,
+		"codename": "view_customer"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 33,
+	"fields": {
+		"name": "Can add product",
+		"content_type": 9,
+		"codename": "add_product"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 34,
+	"fields": {
+		"name": "Can change product",
+		"content_type": 9,
+		"codename": "change_product"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 35,
+	"fields": {
+		"name": "Can delete product",
+		"content_type": 9,
+		"codename": "delete_product"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 36,
+	"fields": {
+		"name": "Can view product",
+		"content_type": 9,
+		"codename": "view_product"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 37,
+	"fields": {
+		"name": "Can add images",
+		"content_type": 10,
+		"codename": "add_images"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 38,
+	"fields": {
+		"name": "Can change images",
+		"content_type": 10,
+		"codename": "change_images"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 39,
+	"fields": {
+		"name": "Can delete images",
+		"content_type": 10,
+		"codename": "delete_images"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 40,
+	"fields": {
+		"name": "Can view images",
+		"content_type": 10,
+		"codename": "view_images"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 41,
+	"fields": {
+		"name": "Can add order",
+		"content_type": 11,
+		"codename": "add_order"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 42,
+	"fields": {
+		"name": "Can change order",
+		"content_type": 11,
+		"codename": "change_order"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 43,
+	"fields": {
+		"name": "Can delete order",
+		"content_type": 11,
+		"codename": "delete_order"
+	}
+}, {
+	"model": "auth.permission",
+	"pk": 44,
+	"fields": {
+		"name": "Can view order",
+		"content_type": 11,
+		"codename": "view_order"
+	}
+}, {
+	"model": "auth.user",
+	"pk": 1,
+	"fields": {
+		"password": "pbkdf2_sha256$216000$e9Sabvtnp2on$WOtO0u+NRx3LIDHLDXU6JFuNEIFJeJ3MGfnmksvnh70=",
+		"last_login": "2020-10-08T17:21:24.078Z",
+		"is_superuser": true,
+		"username": "admin",
+		"first_name": "",
+		"last_name": "",
+		"email": "",
+		"is_staff": true,
+		"is_active": true,
+		"date_joined": "2020-10-08T17:21:16.814Z",
+		"groups": [],
+		"user_permissions": []
+	}
+}, {
+	"model": "contenttypes.contenttype",
+	"pk": 1,
+	"fields": {
+		"app_label": "admin",
+		"model": "logentry"
+	}
+}, {
+	"model": "contenttypes.contenttype",
+	"pk": 2,
+	"fields": {
+		"app_label": "auth",
+		"model": "permission"
+	}
+}, {
+	"model": "contenttypes.contenttype",
+	"pk": 3,
+	"fields": {
+		"app_label": "auth",
+		"model": "group"
+	}
+}, {
+	"model": "contenttypes.contenttype",
+	"pk": 4,
+	"fields": {
+		"app_label": "auth",
+		"model": "user"
+	}
+}, {
+	"model": "contenttypes.contenttype",
+	"pk": 5,
+	"fields": {
+		"app_label": "contenttypes",
+		"model": "contenttype"
+	}
+}, {
+	"model": "contenttypes.contenttype",
+	"pk": 6,
+	"fields": {
+		"app_label": "sessions",
+		"model": "session"
+	}
+}, {
+	"model": "contenttypes.contenttype",
+	"pk": 7,
+	"fields": {
+		"app_label": "customer",
+		"model": "person"
+	}
+}, {
+	"model": "contenttypes.contenttype",
+	"pk": 8,
+	"fields": {
+		"app_label": "customer",
+		"model": "customer"
+	}
+}, {
+	"model": "contenttypes.contenttype",
+	"pk": 9,
+	"fields": {
+		"app_label": "product",
+		"model": "product"
+	}
+}, {
+	"model": "contenttypes.contenttype",
+	"pk": 10,
+	"fields": {
+		"app_label": "product",
+		"model": "images"
+	}
+}, {
+	"model": "contenttypes.contenttype",
+	"pk": 11,
+	"fields": {
+		"app_label": "order",
+		"model": "order"
+	}
+}, {
+	"model": "sessions.session",
+	"pk": "9z6bg1hdbj1rtejcymlx7e6sarv7fako",
+	"fields": {
+		"session_data": ".eJxVjMsOwiAURP-FtSFSeml16b7fQO4DpGogKe3K-O-WpAtdzpwz81YetzX5rYbFz6KuyqjTb0fIz5AbkAfme9Fc8rrMpJuiD1r1VCS8bof7d5Cwpn2NYgYOQBcADHYEFrb2LBD7DsXiKK7bgxCIODdgUw33FJ0gUgSnPl8VQjmo:1kQZbY:ia5oYW7zEKNanSsC3vsyT67dl5qR_q7mUblusIAj0As",
+		"expire_date": "2020-10-22T17:21:24.088Z"
+	}
+}, {
+	"model": "customer.person",
+	"pk": 1,
+	"fields": {
+		"first_name": "Gilmar Dave",
+		"middle_name": null,
+		"last_name": "Gamboa",
+		"profile_picture": "static/apps/customer/img/profile_pictures/unknown_sw2jQDT.png",
+		"street": "221B Baker Street",
+		"barangay": "Bulacao",
+		"city": "Cebu City",
+		"province": "Cebu",
+		"zip_code": "6000",
+		"country": "PH",
+		"gender": "M",
+		"birth_date": "1999-05-14",
+		"status": "S",
+		"spouse_name": "",
+		"spouse_occupation": "",
+		"number_of_children": 0,
+		"mother_name": "Roberta Amores",
+		"mother_occupation": "Pharmacist",
+		"father_name": "Magdaleno Amores",
+		"father_occupation": "Engineer",
+		"height": 170,
+		"weight": 65,
+		"religion": "Roman Catholic"
+	}
+}, {
+	"model": "customer.person",
+	"pk": 2,
+	"fields": {
+		"first_name": "Jan Dale",
+		"middle_name": null,
+		"last_name": "Amores",
+		"profile_picture": "static/apps/customer/img/profile_pictures/119136646_631402030845799_5705252906106491884__byf8XgH.png",
+		"street": "Lower Hills View",
+		"barangay": "Tisa",
+		"city": "Cebu City",
+		"province": "Cebu",
+		"zip_code": "6000",
+		"country": "PH",
+		"gender": "M",
+		"birth_date": "1999-05-14",
+		"status": "S",
+		"spouse_name": "",
+		"spouse_occupation": "",
+		"number_of_children": 0,
+		"mother_name": "",
+		"mother_occupation": "",
+		"father_name": "",
+		"father_occupation": "",
+		"height": 170,
+		"weight": 65,
+		"religion": "Roman Catholic"
+	}
+}, {
+	"model": "customer.person",
+	"pk": 3,
+	"fields": {
+		"first_name": "Jonathan Jubeth",
+		"middle_name": null,
+		"last_name": "Ollave",
+		"profile_picture": "static/apps/customer/img/profile_pictures/asd.png",
+		"street": "222B Baker Street",
+		"barangay": "Barangay",
+		"city": "Cebu City",
+		"province": "Cebu",
+		"zip_code": "6000",
+		"country": "PH",
+		"gender": "M",
+		"birth_date": "2000-12-12",
+		"status": "S",
+		"spouse_name": "",
+		"spouse_occupation": "",
+		"number_of_children": 0,
+		"mother_name": "",
+		"mother_occupation": "",
+		"father_name": "",
+		"father_occupation": "",
+		"height": 120,
+		"weight": 12,
+		"religion": "Atheist"
+	}
+}, {
+	"model": "customer.customer",
+	"pk": 1,
+	"fields": {
+		"date_registered": "2020-10-09",
+		"date_modified": "2020-10-09"
+	}
+}, {
+	"model": "customer.customer",
+	"pk": 2,
+	"fields": {
+		"date_registered": "2020-10-09",
+		"date_modified": "2020-10-09"
+	}
+}, {
+	"model": "customer.customer",
+	"pk": 3,
+	"fields": {
+		"date_registered": "2020-10-09",
+		"date_modified": "2020-10-09"
+	}
+}, {
+	"model": "product.product",
+	"pk": 1,
+	"fields": {
+		"date_registered": "2020-10-09",
+		"product_category": "Shoes",
+		"product_name": "Boys Questar Flow Sneaker",
+		"product_brand": "Adidas",
+		"color": "B",
+		"product_dimension": "8M",
+		"product_price": "39.99",
+		"num_items": 100
+	}
+}, {
+	"model": "product.product",
+	"pk": 2,
+	"fields": {
+		"date_registered": "2020-10-09",
+		"product_category": "Shoes",
+		"product_name": "Another New Shoes",
+		"product_brand": "Brand Shoe",
+		"color": "W",
+		"product_dimension": "1M",
+		"product_price": "50.23",
+		"num_items": 2
+	}
+}, {
+	"model": "product.product",
+	"pk": 3,
+	"fields": {
+		"date_registered": "2020-10-09",
+		"product_category": "No",
+		"product_name": "Available",
+		"product_brand": "Item",
+		"color": "G",
+		"product_dimension": "23",
+		"product_price": "332.98",
+		"num_items": 0
+	}
+}, {
+	"model": "product.images",
+	"pk": 1,
+	"fields": {
+		"product": 1,
+		"image": "static/apps/product/img/profile_pictures/EiCijiZUwAErR4Y_ti5kZ0A.jpeg"
+	}
+}, {
+	"model": "product.images",
+	"pk": 2,
+	"fields": {
+		"product": 1,
+		"image": "static/apps/product/img/profile_pictures/unknown_kjn42Lt.png"
+	}
+}, {
+	"model": "product.images",
+	"pk": 3,
+	"fields": {
+		"product": 2,
+		"image": "static/apps/product/img/profile_pictures/NINTCHDBPICT000439378263.jpg"
+	}
+}]

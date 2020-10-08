@@ -199,28 +199,28 @@
           {% csrf_token %}
         <div class="modal-body">
           <div>
-            <div id="carouselExampleIndicators" class="carousel slide carousel-fit" data-ride="carousel">
-              <ol class="carousel-indicators">
-                {% for p in i.images_set.all %}
-                <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}" class="{% if forloop.counter0 == 0 %} active {% endif %}"></li>
-                {% endfor %}
-              </ol>
-              <div class="carousel-inner">
-                {% for p in i.images_set.all %}
-                <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %} ">
-                  <img class="d-block w-100 crs-size" src="{{ p.image.url }}" alt="">
+              <div id="carouselExampleIndicators" class="carousel slide carousel-fit" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  {% for p in i.images_set.all %}
+                  <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}" class="{% if forloop.counter0 == 0 %} active {% endif %}"></li>
+                  {% endfor %}
+                </ol>
+                <div class="carousel-inner">
+                  {% for p in i.images_set.all %}
+                  <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %} ">
+                    <img class="d-block w-100 crs-size" src="{{ p.image.url }}" alt="">
+                  </div>
+                  {% endfor %}
                 </div>
-                {% endfor %}
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
               </div>
-              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
               <!-- <div class="row gallery">
                 {% for p in i.images_set.all %}
                 <div class="col-md-3">
