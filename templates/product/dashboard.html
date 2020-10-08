@@ -60,7 +60,7 @@
     
     
     <!-- Your custom styles (optional) -->
-    <link rel="stylesheet" href="{% static 'apps/customer/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'apps/product/css/style.css' %}" />
 {% endblock stylesheets%}
 
 {% block title %} Product Dashboard {% endblock title %}
@@ -109,7 +109,7 @@
                 <button
 									class="btn-sm btn-danger text-white"
 									data-toggle="modal"
-									data-target="#delete"
+									data-target="#delproduct{{i.sku}}"
 									href="#"
 								>
 									Delete
@@ -126,10 +126,11 @@
         <div class="registration-button">+</div>
       </a>
     </main>
-    <!-- Modal -->
+    <!-- Modal Delete -->
+    {% for i in products %}
 		<div
     class="modal fade"
-    id="delete"
+    id="delproduct{{i.sku}}"
     tabindex="-1"
     role="dialog"
     aria-labelledby="exampleModalLabel"
@@ -148,7 +149,11 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <form id="deleteForm" method="post">
+          {% csrf_token %}
         <div class="modal-body">
+          <input type="text" class="form-control" id="product_sku" name="sku"
+                    value="{{i.sku}}" hidden/>
           Do you really want to delete this particular record? This process
           cannot be undone.
         </div>
@@ -160,13 +165,14 @@
           >
             Cancel
           </button>
-          <button type="button" class="btn btn-danger">Confirm</button>
+          <button type="submit" id="btnDelete" name="btnDelete" class="btn btn-danger">Confirm</button>
         </div>
+      </form>
       </div>
     </div>
   </div>
-
-  <!-- Modal2 -->
+  {% endfor %}
+  <!-- Modal View and Update -->
   {% for i in products %}
   <div
     class="modal fade"
@@ -179,7 +185,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Personal Data</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Product Data</h5>
           <button
             type="button"
             class="close"
@@ -189,19 +195,126 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <form if="updateForm" method="post">
+          {% csrf_token %}
         <div class="modal-body">
-          <div class="text-center">
-            Date Registered: {{i.date_registered}}
-            <br />
-            Product Category: {{i.product_category}}
-            <br />
-            Product Brand: {{i.product_brand}}
-            <br />
-            Product Name: {{i.product_name}}
-            <br />
-            Product Price: {{i.product_price}}
-            <br />
-            Number of items: {{i.num_items}}
+          <div>
+            <div id="carouselExampleIndicators" class="carousel slide carousel-fit" data-ride="carousel">
+              <ol class="carousel-indicators">
+                {% for p in i.images_set.all %}
+                <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}" class="{% if forloop.counter0 == 0 %} active {% endif %}"></li>
+                {% endfor %}
+              </ol>
+              <div class="carousel-inner">
+                {% for p in i.images_set.all %}
+                <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %} ">
+                  <img class="d-block w-100 crs-size" src="{{ p.image.url }}" alt="">
+                </div>
+                {% endfor %}
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+              <!-- <div class="row gallery">
+                {% for p in i.images_set.all %}
+                <div class="col-md-3">
+                  <img src="{{ p.image.url }}"  alt="Image not found" class="img-thumbnail">
+                 </div>
+                {% endfor %}
+  
+              </div> -->
+              <input type="text" class="form-control" id="product_sku" name="sku"
+                    value="{{i.sku}}" hidden/>
+
+              <div class="form-row">
+                <div class="form-group col-md mrg-top">
+                  <label for="product_category">Product Category</label>
+                  <input type="text" 
+                    class="form-control" 
+                    id="product_category" 
+                    name="product_category"
+                    value="{{i.product_category}}"
+                    pattern="{2,30}"
+                    title="Must contain at least 2 to 30 characters"
+                    required
+                  />
+                </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group col-md">
+                    <label for="product_brand">Product Brand</label>
+                    <input 
+                      type="text" 
+                      class="form-control" 
+                      id="product_brand" 
+                      name="product_brand"
+                      value="{{i.product_brand}}"
+                      pattern="{2,30}"
+                      required
+                    />
+                  </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md">
+                      <label for="color">Color</label>
+                      <select id="color" name="color" class="form-control" placeholder="{{i.color}}" required>
+                        {% for color in color_choices %}
+                          <option value="{{color.0}}" {% if color.0 == i.color %} selected {% endif %}>{{color.name}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    </div>
+           
+                  <div class="form-row">
+                    <div class="form-group col-md">
+                      <label for="product_name">Product Name</label>
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="product_name" 
+                        name="product_name"
+                        value="{{i.product_name}}"
+                        pattern="{2,30}"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                    <div class="form-row">
+                      <div class="form-group col-md">
+                        <label for="product_price">Product Price</label>
+                        <input 
+                          type="number" 
+                          class="form-control" 
+                          id="product_price" 
+                          name="product_price"
+                          value="{{i.product_price}}"
+                          required
+                        />
+                      </div>
+                    </div>
+                   
+                    <div class="form-row">
+                      <div class="form-group col-md">
+                        <label for="num_items">Number of items</label>
+                        <input 
+                          type="number" 
+                          class="form-control" 
+                          id="num_items" 
+                          name="num_items"
+                          value="{{i.num_items}}" 
+                          required
+                          />
+                      </div>
+                    </div>
           </div>
         </div>
         <div class="modal-footer">
@@ -212,8 +325,9 @@
           >
             Close
           </button>
-          <button type="button" class="btn btn-primary">Update</button>
+          <button type="submit" id="btnUpdate" name="btnUpdate" class="btn btn-primary">Update</button>
         </div>
+      </form>
       </div>
     </div>
   </div>

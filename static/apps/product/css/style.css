@@ -18,52 +18,11 @@
 	margin: 0 15px;
 }
 
-.carousel-item {
-	height: 100vh;
-	min-height: 300px;
-	background: no-repeat center center scroll;
-	-webkit-background-size: cover;
-	background-size: cover;
-}
-
-.carousel-caption {
-	bottom: 370px;
-}
-
-.carousel-caption h5 {
-	font-size: 45px;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	margin-top: 25px;
-	font-family: merienda;
-}
-
-.carousel-caption p {
-	width: 60%;
-	margin: auto;
-	font-size: 18px;
-	line-height: 1.9;
-	font-family: poppins;
-}
-
-.carousel-caption a {
-	text-transform: uppercase;
-	background: #262626;
-	padding: 10px 30px;
-	display: inline-block;
-	color: #fff;
-	margin-top: 15px;
-}
-
 .navbar-nav {
 	text-align: center;
 }
 .nav-link {
 	padding: 0.2rem 1rem;
-}
-
-.w-100 {
-	height: 100vh;
 }
 
 .registration-button {
@@ -97,4 +56,28 @@
 		line-height: 0.3;
 		background: #fff;
 	}
+}
+
+.mrg-left {
+	height: 50px;
+	width: 2.5rem;
+}
+
+.gallery {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.gallery .img-thumbnail {
+	height: 150px;
+	width: 200px;
+}
+
+.csr-size {
+	height: 50px !important;
+	width: auto;
+}
+
+.mrg-top {
+	margin-top: 10px;
 }
