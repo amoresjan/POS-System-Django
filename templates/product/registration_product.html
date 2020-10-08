@@ -114,6 +114,9 @@
 									id="label__category"
 									name="product_category"
 									placeholder="Shoes"
+									maxlength="30"
+									minlength="3"
+									required
 								/>
 							</div>
 							<div class="form-group col-md-6">
@@ -124,6 +127,8 @@
 									name="product_name"
 									id="label__name"
 									placeholder="Boys Questar Flow Sneaker"
+									minlength="3"
+									required
 								/>
 							</div>
 						</div>
@@ -137,6 +142,7 @@
 									id="label__brand"
 									name="product_brand"
 									placeholder="Adidas"
+									required
 								/>
 							</div>
 							<div class="form-group col-md-6">
@@ -155,6 +161,7 @@
 									name="product_dimension"
 									id="label__size"
 									placeholder="8M"
+									required
 								/>
 							</div>
 							<div class="form-group col-md-6">
@@ -165,11 +172,10 @@
 									min="0"
 									step="0.01"
 									title="Currency"
-									pattern="^\d+(?:\.\d{1,2})?$"
-									onblur="this.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'"
 									name="product_price"
 									id="label__price"
 									placeholder="$39.99"
+									required
 								/>
 							</div>
 						</div>
@@ -185,7 +191,7 @@
 									min="1"
 									class="form-control"
 									id="label__num-stock"
-									pla
+									required
 								/>
 							</div>
 						</div>

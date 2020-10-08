@@ -104,15 +104,7 @@
 									data-target="#product{{i.sku}}"
 									href="#"
 								>
-									View
-								</button>
-                <button
-									class="btn-sm btn-danger text-white"
-									data-toggle="modal"
-									data-target="#delproduct{{i.sku}}"
-									href="#"
-								>
-									Delete
+									Buy
 								</button>
               </td>
             </tr>
@@ -122,9 +114,7 @@
           </tbody>
         </table>
       </div>
-      <a href="{% url 'productRegistration' %}">
-        <div class="registration-button">+</div>
-      </a>
+      
     </main>
     <!-- Modal Delete -->
     {% for i in products %}
@@ -232,38 +222,20 @@
               <input type="text" class="form-control" id="product_sku" name="sku"
                     value="{{i.sku}}" hidden/>
 
-              <div class="form-row">
-                <div class="form-group col-md mrg-top">
-                  <label for="product_category">Product Category</label>
-                  <input type="text" class="form-control" id="product_category" name="product_category" maxlength="30"
-                    value="{{i.product_category}}" required/>
-                </div>
-                </div>
-
-                <div class="form-row">
-                  <div class="form-group col-md">
-                    <label for="product_brand">Product Brand</label>
-                    <input type="text" class="form-control" id="product_brand" name="product_brand"
-                      value="{{i.product_brand}}" required/>
-                  </div>
-                  </div>
-
-                  <div class="form-row">
-                    <div class="form-group col-md">
-                      <label for="color">Color</label>
-                      <select id="color" name="color" class="form-control" placeholder="{{i.color}}" required>
-                        {% for color in color_choices %}
-                          <option value="{{color.0}}" {% if color.0 == i.color %} selected {% endif %}>{{color.name}}</option>
-                        {% endfor %}
-                      </select>
-                    </div>
-                    </div>
            
                   <div class="form-row">
                     <div class="form-group col-md">
                       <label for="product_name">Product Name</label>
                       <input type="text" class="form-control" id="product_name" name="product_name"
                         value="{{i.product_name}}" required/>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md">
+                      <label for="product_price">Quantity:</label>
+                      <input type="number" class="form-control" id="product_price" name="product_price" 
+                        value="" required/>
                     </div>
                   </div>
 

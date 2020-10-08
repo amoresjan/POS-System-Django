@@ -68,3 +68,13 @@ class productRegistrationViewSet(View):
             return redirect('/product')
 
         return HttpResponse(form.errors)
+
+
+class productOrderViewSet(View):
+    def get(self, request):
+        products = Product.objects.all()
+        context = {
+            'products': products,
+        }
+        return render(request, 'product/order.html', context)
+
