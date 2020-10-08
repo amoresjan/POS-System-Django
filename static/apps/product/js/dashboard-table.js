@@ -1,15 +1,6 @@
 $(document).ready(function () {
   var oTable = $(".data-table").DataTable({
-    dom: "Bfrtip",
-    buttons: [
-      {
-        extend: "excel",
-        exportOptions: {
-          columns: [0, 1, 2, 3],
-        },
-      },
-    ],
-  });
+});
 
   $("#datepicker_from")
     .datepicker({

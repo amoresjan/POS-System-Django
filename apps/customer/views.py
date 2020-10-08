@@ -1,17 +1,40 @@
 from django.shortcuts import render,redirect
 from django.views import View
 from django.http import HttpResponse
-from .models import *
-from .forms import *
+from apps.customer.models import Customer
+from apps.customer.forms import CustomerForm
+from apps.customer import choices
 
 # Create your views here.
 
-def customerDashboardViewSet(request):
-    customers = Customer.objects.all()
-    return render(request, 'customer/dashboard.html', {'customers': customers})
+class customerDashboardView(View):
+    customer_form = CustomerForm
+
+    def get(self, request):
+        customers = Customer.objects.all() #pylint: disable=no-member
+        context = {
+            'customers': customers,
+            'status_choices' : choices.Status,
+            'gender_choices' : choices.Gender
+        }
+        return render(request, 'customer/dashboard.html', context)
+
+    def post(self, request):
+        customer = Customer.objects.get(id = request.POST.get('id')) #pylint: disable=no-member
+
+        if 'btnUpdate' in request.POST: 
+            form = self.customer_form(request.POST, request.FILES, instance=customer) 
+            if form.is_valid(): 
+                form.save() 
+                return redirect('customerDashboard') 
+            return HttpResponse(form.errors) 
+            
+        elif 'btnDelete' in request.POST:
+            customer.delete()
+            return redirect('customerDashboard')
 
 
-class customerRegistrationViewSet(View):
+class customerRegistrationView(View):
     customer_form = CustomerForm
 
     def get(self, request):
@@ -26,3 +49,4 @@ class customerRegistrationViewSet(View):
             return redirect('customerDashboard')
         
         return HttpResponse(form.errors)
+

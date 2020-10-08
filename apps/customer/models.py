@@ -1,6 +1,7 @@
 from django.db import models
 from apps.customer import choices
 from django_countries.fields import CountryField
+from stdimage import StdImageField, JPEGField
 
 # Create your models here.
 
@@ -17,6 +18,7 @@ class Person(models.Model):
         max_length = 30
     )
     profile_picture = models.ImageField(
+        blank = True,
         upload_to = 'static/apps/customer/img/profile_pictures/'
     )
     
@@ -38,18 +40,16 @@ class Person(models.Model):
     zip_code = models.CharField(
         max_length = 4
     )
-    country = CountryField(
-        max_length = 30
-    )
+    country = CountryField()
 
     gender = models.CharField(
         max_length = 1,
-        choices = choices.Gender
+        choices = choices.Gender.choices
     )
     birth_date = models.DateField()
     status = models.CharField(
         max_length = 1,
-        choices = choices.Status
+        choices = choices.Status.choices,
     )
 
     spouse_name = models.CharField(
@@ -65,16 +65,20 @@ class Person(models.Model):
     )
     
     mother_name = models.CharField(
+        blank = True,
         max_length = 70
     )
     mother_occupation = models.CharField(
+        blank = True,
         max_length = 30
     )
 
     father_name = models.CharField(
+        blank = True,
         max_length = 70
     )
     father_occupation = models.CharField(
+        blank = True,
         max_length = 30
     )
 
@@ -85,11 +89,23 @@ class Person(models.Model):
         verbose_name = 'Weight (kg)'
     )
     religion = models.CharField(
+        blank = True,
         max_length = 30
     )
 
-    def __str__(self):
+    def full_name(self):
+        if self.middle_name:
+            return f'{self.first_name} {self.middle_name[0]}. {self.last_name}' #pylint: disable=unsubscriptable-object
         return f'{self.first_name} {self.last_name}'
+
+    def __str__(self):
+        return "".join(
+            [
+                str(self.id),
+                " - ",
+                self.full_name(),
+            ]
+        )
 
 class Customer(Person):
     date_registered = models.DateField(
@@ -98,3 +114,4 @@ class Customer(Person):
     date_modified = models.DateField(
         auto_now = True
     )
+
