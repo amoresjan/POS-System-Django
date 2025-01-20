@@ -1,4 +1,4 @@
-# Information Management 2
+# POS System using Django
 
 ### **_david!! check this out!!_**
 1. `python -m env venv`
